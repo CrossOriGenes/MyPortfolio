@@ -11,11 +11,12 @@ const Services = () => {
             </h1>
           </div>
           <p className="lead" data-aos="fade-up">
-            Suspendisse eu ligula. Duis arcu tortor, suscipit eget, imperdiet
-            nec, imperdiet iaculis, ipsum. Nulla facilisi. Etiam rhoncus.
-            Praesent blandit laoreet nibh. Donec quam felis, ultricies nec,
-            pellentesque eu, pretium quis, sem. Cras sagittis. Praesent egestas
-            tristique nibh.
+            Designs of the appliactions are the highest lookup in modern-day
+            real-time softwares. When when it comes to us, it's no-doubtebly the
+            best I try to offer. All the UI works, presentation and seamless
+            work-flow are performed with high precision and skills keeping both
+            the taste of users and according to the current market strategies in
+            mind.
           </p>
         </div>
         {/* end  s-services--leftcol */}
@@ -40,8 +41,10 @@ const Services = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  Suspendisse non nisl sit amet velit hendrerit rutrum. Etiam
-                  vitae tortor. Ut tincidunt tincidunt erat.
+                  High quality, Environment-oriented, React and native-based
+                  frontends are created, providing the flexiblity for various
+                  server plugins like <strong>Express, Django</strong> or{" "}
+                  <strong>Laravel</strong> like frameworks
                 </div>
               </div>
             </div>
@@ -64,9 +67,11 @@ const Services = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  Fusce egestas elit eget lorem. Donec venenatis vulputate
-                  lorem. Nam at tortor in tellus interdum sagittis. Vestibulum
-                  fringilla pede sit amet augue..
+                  High quality UI/UX/wireframe designs supprting features like
+                  <strong>"material-icons", "AnimeJS"</strong> and much more
+                  that comes in all supported{" "}
+                  <strong>'.psd','.jpeg','.gif'</strong> or{" "}
+                  <strong>'.png'</strong> formats.
                 </div>
               </div>
             </div>
@@ -89,9 +94,11 @@ const Services = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  Ut id nisl quis enim dignissim sagittis. Pellentesque egestas,
-                  neque sit amet convallis pulvinar, justo nulla eleifend augue,
-                  ac auctor orci leo non est
+                  An all user-friendly, managable and structured data-flow is
+                  demonstrated using the UML, Sequential, DFD and ERD diagrams
+                  providing the flexibility to switch between any Database
+                  approach whether it may be <strong>SQL</strong> or{" "}
+                  <strong>MongoDB</strong> no matter what you choose.
                 </div>
               </div>
             </div>
@@ -114,8 +121,14 @@ const Services = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  Praesent ac sem eget est egestas volutpat. Nam pretium
-                  turpiset arcu. Quisque ut nisi.
+                  When it comes to the point of payment and credentials, the
+                  most important thing to be looked after is security. I as a
+                  developer provide the highly secured and smooth cryptographic
+                  currency conversion features conjuncted with{" "}
+                  <strong>RazorPay</strong> payment system to unlock all the
+                  possible payment methods to smoothly carry out your
+                  transactions, no matter where you are sitting now! Its all
+                  verified and the most secured system provided.
                 </div>
               </div>
             </div>
@@ -127,6 +140,6 @@ const Services = () => {
       {/* s-services__content */}
     </section>
   );
-}
+};
 
 export default Services;

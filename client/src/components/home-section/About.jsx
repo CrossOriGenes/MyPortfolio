@@ -16,7 +16,7 @@ const About = () => {
     });
     document
       .querySelectorAll(".progress-bar")
-      .forEach((elem) => observer.observe(elem));      
+      .forEach((elem) => observer.observe(elem));
   });
 
   return (
@@ -49,10 +49,10 @@ const About = () => {
               reputed college under The University of Burdwan.
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I generally believe in
-              honesty, patience, efforts, labor and practice in everything which
-              I do. I&apos;m dedicated to serve for people and motivate others,
-              which provides me with an immense satisfaction. All my works
-              includes high endorsement of latest trending build settings,
+              honesty, patience, efforts, labour and practice in everything
+              which I do. I&apos;m dedicated to serve for people and motivate
+              others, which provides me with an immense satisfaction. All my
+              works includes high endorsement of latest trending build settings,
               current in-trade software modules, designs and performances that
               includes a majority of web and mobile-app related approaches.
             </p>
@@ -139,21 +139,21 @@ const About = () => {
                 className="far fa-dot-circle text-primary position-absolute"
                 style={{ top: 2, left: "-30px" }}
               />
-              {/* <div className="position__header">
-                  <h6 className="font-weight-bold mb-1">Fresher</h6>
-                </div> */}
               <div className="position__header">
+                <h6 className="font-weight-bold mb-1">Fresher</h6>
+              </div>
+              {/* <div className="position__header">
                 <h6 className="font-weight-bold mb-1">Frontend Developer</h6>
                 <div className="position__timeframe mb-2">
                   <strong>Webstrummer Infolab</strong> |{" "}
                   <small>2022 - Present</small>
                 </div>
-              </div>
+              </div> 
               <p>
                 Currently posted as a Frontend developer based on Laravel
                 framework for websites focussing on Event Management Systems
                 (EMS).
-              </p>
+              </p>*/}
             </div>
           </div>
           <h3 className="mb-4">Hobbies</h3>
