@@ -60,29 +60,27 @@ router.get(
     })
 )
 
-router.get("/auth/google/callback",
+router.get(
+    "/auth/google/callback",
     passport.authenticate("google", {
-        failureRedirect: 'http://localhost:3000/downloads',
-        successRedirect: 'http://localhost:3000/downloads',
-        failureMessage: true,
+        successRedirect: "http://localhost:3000/downloads",
+        failureRedirect: "/auth/failure",
     }),
-    (req, res) => {
-        try {
-            const { accessToken } = req.user
-            // console.log(2, accessToken)
-            res.status(200).json({ msg: "login successful", token: accessToken })
-        } catch (error) {
-            console.log(error)
-        }
-    }
-)
+);
 
-router.get('/auth/googleLogin', passport.authenticate("google"), (req, res, next) => {
+router.get('/auth/googleLogin', (req, res, next) => {
     try {
-        console.log(req.user)
-        res.status(200).json({ msg: "login successful", token: accessToken })
+        res.status(200).json({ msg: "login successful", token: req.user.accessToken })
     } catch (err) {
-        next(err)
+        console.log(err)
+    }
+})
+
+router.get('/auth/failure', (req, res, next) => {
+    try {
+        res.status(301).json({ msg: "Failed to SignIn!" })
+    } catch (err) {
+        console.log(err)
     }
 })
 

@@ -26,7 +26,7 @@ const ContactUs = ({ toggleGotoTop }) => {
               <div className="footer-contact-block" data-aos="fade-up">
                 <h5 className="footer-contact-block__header">Phone</h5>
                 <p className="footer-contact-block__content">
-                  <a href="tel:+1975432345">+91 9123944263</a>
+                  <a href="tel:+91 9123944263">+91 9123944263</a>
                 </p>
               </div>
               {/* end footer-contact-block */}
@@ -59,25 +59,17 @@ const ContactUs = ({ toggleGotoTop }) => {
                     type="text"
                     className="form-control p-4"
                     id="inputUsername"
-                    placeholder="Name"
+                    placeholder="Your Name"
                   />
                 </div>
                 <div className="form-group col-sm-5 pr-0">
-                  <input
-                    type="email"
-                    className="form-control p-4"
-                    id="inputEmail4"
-                    placeholder="Email"
-                  />
-                </div>
-              </div>
-              <div className="form-group col-md-11 d-flex justify-content-center m-auto">
                 <input
                   type="text"
                   className="form-control p-4"
                   id="inputSubject"
                   placeholder="Subject:  Hiring for a special web-design"
                 />
+                </div>
               </div>
               <div className="form-group col-md-11 d-flex justify-content-center m-auto">
                 <textarea

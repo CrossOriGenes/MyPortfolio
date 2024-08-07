@@ -2,38 +2,31 @@ import React, { useEffect } from "react";
 
 const DownloadSection = () => {
   const googleLogin = () => {
-    window.open("http://localhost:8000/auth/google",'_self');
+    window.open("http://localhost:8000/auth/google", "_self");
   };
 
   const onLoginSuccess = async () => {
     try {
-      // const response = await fetch("http://localhost:5000/user/googleLogin",{
-      const response = await fetch("http://localhost:8000/auth/googleLogin"
-      //   ,{
-      //   headers: {
-      //     Accept: "application/json",
-      //     "Content-type": "application/json",
-      //     "Access-Control-Allow-Credentials": true,
-      //   },
-      //   method: "GET",
-      //   credentials: "include",
-      // }
-    );
+      const response = await fetch("http://localhost:8000/auth/googleLogin", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      });
 
       const result = await response.json();
       console.log(result);
 
       // if (response.ok) {
       //   // authCtx.login(result.token);
-      //   // navigate("..");
-      //   // toast.success(result.msg, toasterVariants);
+      //   // toast.success(result.msg);
       //   // setErrors(null);
-      // } else if (response.status === 400) {
-      //   toast.error(result.msg, toasterVariants);
-      //   setErrors(result.msg || {});
       // } else {
-      //   toast.error(result.errors, toasterVariants);
-      //   setErrors(result.errors || {});
+      //   toast.error(result.msg || 'Failed to SignIn!);
+      //   console.log(result);
       // }
     } catch (err) {
       console.log(err);
@@ -92,8 +85,12 @@ const DownloadSection = () => {
           </div>
 
           <div className="column large-5 tab-full" data-aos="fade-left">
-            <div className="download-wrapper d-flex flex-column ">
-              <div className="preview-box d-flex justify-content-center align-items-center" />
+            <div className="download-wrapper d-flex flex-column container">
+              <div className="preview-box d-flex justify-content-center align-items-center">
+                <div className="blur-backdrop">
+                  <span>Preview</span>
+                </div>
+              </div>
               <div
                 className="download-wrapper__actions d-flex flex-column"
                 data-aos="fade-left"

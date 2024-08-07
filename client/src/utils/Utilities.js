@@ -2,43 +2,40 @@
 export const pswpImages = [
     {
         id: 1,
-        largeURL: "images/portfolio/gallery/g-windows-in-the-city.jpg",
-        thumbnailURL: "images/portfolio/windows-in-the-city.jpg",
-        thumbnailURLSets: "images/portfolio/windows-in-the-city.jpg    1x, images/portfolio/windows-in-the-city@2x.jpg 2x",
+        largeURL: "images/portfolio/gallery/password-validator_thumbnail(large).jpg",
+        thumbnailURL: "images/portfolio/password-validator_thumbnail.jpg",
         width: 1050,
         height: 700,
         info: {
-            category: "Branding",
-            title: "Windows in The City",
+            category: "Frontend Design",
+            title: "Password-Validator",
             projectLink: "https://www.behance.net/",
             description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
         }
     },
     {
         id: 2,
-        largeURL: "images/portfolio/gallery/g-building-blocks.jpg",
-        thumbnailURL: "images/portfolio/building-blocks.jpg",
-        thumbnailURLSets: "images/portfolio/building-blocks.jpg    1x, images/portfolio/building-blocks@2x.jpg 2x",
+        largeURL: "images/portfolio/gallery/noteify_thumbnail(large).jpg",
+        thumbnailURL: "images/portfolio/noteify_thumbnail.jpg",
         width: 1050,
         height: 700,
         info: {
-            category: "Frontend Design",
-            title: "Building Blocks",
+            category: "Full-Stack",
+            title: "Notes App",
             projectLink: "https://www.behance.net/",
             description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
         }
     },
     {
         id: 3,
-        largeURL: "images/portfolio/gallery/g-shout-jump.jpg",
-        thumbnailURL: "images/portfolio/shout-and-jump.jpg",
-        thumbnailURLSets: "images/portfolio/shout-and-jump.jpg    1x, images/portfolio/shout-and-jump@2x.jpg 2x",
+        largeURL: "images/portfolio/gallery/testify_thumbnail(large).jpg",
+        thumbnailURL: "images/portfolio/testify_thumbnail.jpg",
         width: 1050,
         height: 700,
         info: {
-            category: "Branding",
-            title: "Shout & Jump",
-            projectLink: "https://www.behance.net/",
+            category: "Full-Stack",
+            title: "Online Test App",
+            projectLink: "https://crossorigenes.github.io/Testify",
             description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
         }
     },
@@ -46,7 +43,7 @@ export const pswpImages = [
         id: 4,
         largeURL: "images/portfolio/gallery/g-sand-dunes.jpg",
         thumbnailURL: "images/portfolio/sand-dunes.jpg",
-        thumbnailURLSets: "images/portfolio/sand-dunes.jpg    1x, images/portfolio/sand-dunes@2x.jpg 2x",
+        // thumbnailURLSets: "images/portfolio/sand-dunes.jpg    1x, images/portfolio/sand-dunes@2x.jpg 2x",
         width: 1050,
         height: 700,
         info: {
@@ -60,7 +57,7 @@ export const pswpImages = [
         id: 5,
         largeURL: "images/portfolio/gallery/g-woodcraft.jpg",
         thumbnailURL: "images/portfolio/woodcraft.jpg",
-        thumbnailURLSets: "images/portfolio/woodcraft.jpg    1x, images/portfolio/woodcraft@2x.jpg 2x",
+        // thumbnailURLSets: "images/portfolio/woodcraft.jpg    1x, images/portfolio/woodcraft@2x.jpg 2x",
         width: 1050,
         height: 700,
         info: {
@@ -74,7 +71,7 @@ export const pswpImages = [
         id: 6,
         largeURL: "images/portfolio/gallery/g-lamp.jpg",
         thumbnailURL: "images/portfolio/lamp.jpg",
-        thumbnailURLSets: "images/portfolio/lamp.jpg    1x, images/portfolio/lamp@2x.jpg 2x",
+        // thumbnailURLSets: "images/portfolio/lamp.jpg    1x, images/portfolio/lamp@2x.jpg 2x",
         width: 1050,
         height: 700,
         info: {

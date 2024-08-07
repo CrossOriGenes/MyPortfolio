@@ -2536,6 +2536,7 @@ html.no-csstransitions .hero-content {
 
 .download-wrapper {
   position: relative;
+  justify-content: center;
   align-items: center;
   margin: 7.2rem 0 0 2rem;
   padding: 0 1rem;
@@ -2543,9 +2544,34 @@ html.no-csstransitions .hero-content {
 
 .download-wrapper .preview-box {
   width: 90%;
-  height: 30vh;
-  background: #444;
+  height: 60vh;
+  /* background: #444; */
+  background: url('../images/CV_page-0001.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
+}
+
+.download-wrapper .preview-box .blur-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
+}
+
+.download-wrapper .preview-box .blur-backdrop span {
+  font-family: 'Poppins',sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #fff;
+  letter-spacing: 1px;
 }
 
 .download-wrapper .download-wrapper__actions {
@@ -2894,6 +2920,11 @@ html.no-csstransitions .hero-content {
   padding-right: 4rem !important;
   font-weight: 200 !important;
   color: #aaa;
+}
+
+.accordion-body strong {
+  font-weight: 800 !important;
+  color: #ccc;
 }
 
 

@@ -21,7 +21,7 @@ app.use(
         saveUninitialized: false,
         cookie: {
             // httpOnly: true,
-            // maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
+            maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
             // sameSite: "strict",
             secure: false, // Set to true in production if using HTTPS
         },
@@ -29,12 +29,6 @@ app.use(
 )
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-//     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE');
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization,Origin');
-//     next();
-// });
 
 app.use('/', authRoutes)
 

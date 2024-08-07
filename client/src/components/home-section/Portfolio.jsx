@@ -54,7 +54,7 @@ const Portfolio = () => {
                   >
                     <img
                       src={image.thumbnailURL}
-                      srcSet={image.thumbnailURLSets}
+                      // srcSet={image.thumbnailURLSets}
                       alt=""
                     />
                   </a>
