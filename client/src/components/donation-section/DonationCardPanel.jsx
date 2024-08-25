@@ -3,8 +3,9 @@ import EmojiPicker from "emoji-picker-react";
 
 const DonationCardPanel = ({ onPaymentRequest }) => {
   const [emjKbdIsOpen, setemjKbdIsOpen] = useState(false);
-  const [amount, setAmount] = useState(3);
+  const [amount, setAmount] = useState(100);
   const nameRef = useRef();
+  const mailRef = useRef();
   const messageRef = useRef();
   const formRef = useRef();
 
@@ -14,7 +15,7 @@ const DonationCardPanel = ({ onPaymentRequest }) => {
   };
 
   const onAmountChange = (e) => {
-    setAmount(e.target.value * 3);
+    setAmount(Math.round(e.target.value * 100));
   };
 
   let amountInvalid = false;
@@ -27,11 +28,15 @@ const DonationCardPanel = ({ onPaymentRequest }) => {
 
     const userData = {
       username: nameRef.current.value,
+      email: mailRef.current.value,
       message: messageRef.current.value,
+      amount: +amount
     };
 
     onPaymentRequest(userData);
     formRef.current.reset();
+    document.getElementById('coffee-nos').value = ""
+    setAmount(100)
   };
 
   return (
@@ -113,6 +118,13 @@ const DonationCardPanel = ({ onPaymentRequest }) => {
           id="username"
           required
         />
+        <input
+          type="email"
+          ref={mailRef}
+          placeholder="Your Email"
+          id="usermail"
+          required
+        />
         <div className="position-relative">
           <EmojiPicker
             open={emjKbdIsOpen}
@@ -140,7 +152,7 @@ const DonationCardPanel = ({ onPaymentRequest }) => {
             className="btn btn--primary pay-btn"
             disabled={amountInvalid}
           >
-            Pay ${amount}
+            Pay &#8377;{amount}
           </button>
         </div>
       </form>

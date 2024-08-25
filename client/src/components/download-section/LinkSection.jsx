@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const LinkSection = ({ toggleGotoTop }) => {
+const LinkSection = () => {
   return (
     <footer id="links" className="s-footer h-dark-bg">
       <div className="right-vert-line" />
@@ -25,22 +25,8 @@ const LinkSection = ({ toggleGotoTop }) => {
             contents and works.{" "}
           </p>
           <Link className="btn btn--primary" to="../donate" id="subscribe-btn">
-            Subscribe at $3
+            Subscribe at &#8377;100
           </Link>
-          {/* <aside className="pull-quote">
-            <blockquote>
-              <p>
-                When you look in the eyes of grace, when you meet grace, when
-                you embrace grace, when you see the nail prints in grace's hands
-                and the fire in his eyes, when you feel his relentless love for
-                you - it will not motivate you to sin. It will motivate you to
-                righteousness.
-              </p>
-              <cite className="d-flex justify-content-end">
-                <em>John 3:16-17 ESV</em>
-              </cite>
-            </blockquote>
-          </aside> */}
         </div>
         <div className="column col-lg-5 mb-4">
           <div className="d-flex flex-column footer-intro">
@@ -77,29 +63,32 @@ const LinkSection = ({ toggleGotoTop }) => {
           <hr />
           <ul className="ss-scicons__list d-flex">
             <li>
-              <a href="#0">
-                <i className="fa-brands fa-twitter" />
-              </a>
+              <Link to="https://wa.link/98nicp" target="_blank">
+                <i className="fa-brands fa-whatsapp" />
+              </Link>
             </li>
             <li>
-              <a href="#0">
+              <Link to="https://www.instagram.com/_.deeptoo._" target="_blank">
                 <i className="fa-brands fa-instagram" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#0">
+              <Link
+                to="https://www.facebook.com/snehodipto.das.37"
+                target="_blank"
+              >
                 <i className="fa-brands fa-facebook" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#0">
+              <Link to="https://github.com/CrossOriGenes" target="_blank">
                 <i className="fa-brands fa-github" />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className="column large-full ss-copyright">
-          <span>© 2023-24 CrossOriGenes</span>
+          <span>© 2024-25 CrossOriGenes</span>
           <span>All rights reserved</span>
         </div>
         {/* end ss-copyright */}

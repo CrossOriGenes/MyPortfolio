@@ -19,42 +19,40 @@ const Testimonial = () => {
                 {/* slide 1 */}
                 <div className="testimonial-slider__slide">
                   <p>
-                    Molestiae incidunt consequatur quis ipsa autem nam sit enim
-                    magni. Voluptas tempore rem. Explicabo a quaerat sint autem
-                    dolore ducimus ut consequatur neque. Nisi dolores quaerat
-                    fuga rem nihil nostrum. Laudantium quia consequatur
-                    molestias delectus culpa.
+                    His works are highly promising, both modern and modular in
+                    approach and also premium finished. Well satisfied with the
+                    work and detailings.
                   </p>
                   <div className="testimonial-slider__author">
                     <img
-                      src="images/avatars/user-02.jpg"
+                      src="images/avatars/client-01.png"
                       alt=""
                       className="testimonial-slider__avatar"
                     />
                     <cite className="testimonial-slider__cite">
-                      <strong>Tim Cook</strong>
-                      <span>CEO, Apple</span>
+                      <strong>Anup Kumar Paswan</strong>
+                      <span>Freelancer / Teacher</span>
                     </cite>
                   </div>
                 </div>
                 {/* slide 2 */}
                 <div className="testimonial-slider__slide">
                   <p>
-                    Excepturi nam cupiditate culpa doloremque deleniti repellat.
-                    Veniam quos repellat voluptas animi adipisci. Nisi eaque
-                    consequatur. Voluptatem dignissimos ut ducimus accusantium
-                    perspiciatis. Quasi voluptas eius distinctio. Atque eos
-                    maxime.
+                    Great ability and skills in web-development and an
+                    extraordinary creative designer. Love the works and frontend
+                    builds.
                   </p>
                   <div className="testimonial-slider__author">
                     <img
-                      src="images/avatars/user-01.jpg"
+                      src="images/avatars/client-02.png"
                       alt=""
                       className="testimonial-slider__avatar"
                     />
                     <cite className="testimonial-slider__cite">
-                      <strong>Sundar Pichai</strong>
-                      <span>CEO, Google</span>
+                      <strong>Upal Chatterjee</strong>
+                      <span>
+                        Enterprenuer, Founder of Webstrummer Infolab(Kolkata)
+                      </span>
                     </cite>
                   </div>
                 </div>

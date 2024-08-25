@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import ScrollToTop from "react-scroll-to-top";
 import Header from "../components/UI/Header";
 import Hero from "../components/home-section/Hero";
 import ContactUs from "../components/home-section/ContactUs";
@@ -11,38 +11,12 @@ import Portfolio from "../components/home-section/Portfolio";
 
 function HomePage() {
   const [menuIsOpen, setMenuIsOpen] = useState();
-  const [toggleGotoTop, setToggleGotoTop] = useState(false);
 
-  // When the user clicks on the button, scroll to the top of the document
-  function goToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
   /* mobile menu
    * ---------------------------------------------------- */
   const handleMenuToggle = () => {
     setMenuIsOpen((menuIsOpen) => !menuIsOpen);
   };
-
-  const handleScroll = () => {
-    const position = window.scrollY;
-
-    if (position >= 800) {
-      setToggleGotoTop(true);
-    } else {
-      setToggleGotoTop(false);
-    }
-  };
-
-  useEffect(() => {
-    /* move header
-     * -------------------------------------------------- */
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
 
   return (
     <div id="top" className={menuIsOpen ? "menu-is-open" : ""}>
@@ -53,7 +27,7 @@ function HomePage() {
             <ul className="header-nav">
               <li className="active">
                 <a
-                  className={`smoothscroll`}
+                  className="smoothscroll"
                   href="#hero"
                   title="Intro"
                   onClick={handleMenuToggle}
@@ -63,7 +37,7 @@ function HomePage() {
               </li>
               <li>
                 <a
-                  className={`smoothscroll`}
+                  className="smoothscroll"
                   href="#about"
                   title="About"
                   onClick={handleMenuToggle}
@@ -73,7 +47,7 @@ function HomePage() {
               </li>
               <li>
                 <a
-                  className={`smoothscroll`}
+                  className="smoothscroll"
                   href="#services"
                   title="Services"
                   onClick={handleMenuToggle}
@@ -83,7 +57,7 @@ function HomePage() {
               </li>
               <li>
                 <a
-                  className={`smoothscroll`}
+                  className="smoothscroll"
                   href="#portfolio"
                   title="Works"
                   onClick={handleMenuToggle}
@@ -93,7 +67,7 @@ function HomePage() {
               </li>
               <li>
                 <a
-                  className={`smoothscroll`}
+                  className="smoothscroll"
                   href="#contact"
                   title="Contact us"
                   onClick={handleMenuToggle}
@@ -103,7 +77,6 @@ function HomePage() {
               </li>
             </ul>
             <div className="d-flex justify-content-between">
-              {/* <button className="btn btn--primary">Logout</button> */}
               <Link to="downloads" id="dwnld-redt-btn" className="btn btn--stroke btn--small">
                 Download CV
               </Link>
@@ -128,24 +101,11 @@ function HomePage() {
       <Testimonial />
 
       {/* Contact Us section */}
-      {/* <ContactUs toggleGotoTop={toggleGotoTop} /> */}
       <ContactUs />
 
-      <div
-        className={`ss-go-top ${!toggleGotoTop ? "link-is-visible" : ""}`}
-        title="Back-to-Top"
-        onClick={goToTop}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width={24}
-          height={24}
-          viewBox="0 0 24 24"
-        >
-          <path d="M12 0l8 9h-6v15h-4v-15h-6z" />
-        </svg>
-      </div>
-      {/* end ss-go-top */}
+      {/* go to top button */}
+      <ScrollToTop smooth />
+      {/* //go to top button */}
     </div>
   );
 }

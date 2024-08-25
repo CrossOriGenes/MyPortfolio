@@ -1,3 +1,6 @@
+import { toast } from "react-toastify";
+import axios from 'axios'
+
 // photoswipe images
 export const pswpImages = [
     {
@@ -110,4 +113,35 @@ export const slickSettings = {
             },
         },
     ],
+}
+
+export async function createDownloadLink(link, fileName) {
+    axios.get(link, {
+        responseType: 'blob'
+    })
+        .then(response => {
+            const path = URL.createObjectURL(response.data)
+            const linkElem = document.createElement('a')
+            linkElem.href = path
+            linkElem.download = fileName
+            document.body.appendChild(linkElem)
+            linkElem.click()
+            linkElem.remove()
+            toast.success('Downloading Successful✔️')
+        })
+
+}
+
+export function loadScript(src) {
+    return new Promise((resolve) => {
+        const script = document.createElement('script')
+        script.src = src
+        script.onload = () => {
+            resolve(true)
+        }
+        script.onerror = () => {
+            resolve(false)
+        }
+        document.body.appendChild(script)
+    })
 }

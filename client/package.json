@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "aos": "^3.0.0-beta.6",
+    "axios": "^1.7.4",
     "emoji-picker-react": "^4.11.1",
     "framer-motion": "^11.1.9",
     "photoswipe": "^5.4.3",
@@ -14,7 +15,9 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
+    "react-scroll-to-top": "^3.0.0",
     "react-slick": "^0.30.2",
+    "react-toastify": "^10.0.5",
     "react-typed": "^2.0.12",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"

@@ -1,5 +1,7 @@
 // import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
+
 const ContactUs = ({ toggleGotoTop }) => {
   // // When the user clicks on the button, scroll to the top of the document
   // function goToTop() {
@@ -17,7 +19,7 @@ const ContactUs = ({ toggleGotoTop }) => {
               <h3 className="subhead">Get In Touch</h3>
               <h1 className="display-1">
                 Have an idea or a concept that really excite you? Let's turn
-                that idea into reality. Shoot me a message.
+                that idea into reality. Shoot me a message👇🏻
               </h1>
             </div>
           </div>
@@ -95,29 +97,29 @@ const ContactUs = ({ toggleGotoTop }) => {
             <hr />
             <ul className="ss-scicons__list d-flex">
               <li>
-                <a href="#0">
-                  <i className="fa-brands fa-twitter" />
-                </a>
+                <Link to="https://wa.link/98nicp" target="_blank">
+                  <i className="fa-brands fa-whatsapp" />
+                </Link>
               </li>
               <li>
-                <a href="#0">
+                <Link to="https://www.instagram.com/_.deeptoo._" target="_blank">
                   <i className="fa-brands fa-instagram" />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#0">
+                <Link to="https://www.facebook.com/snehodipto.das.37" target="_blank">
                   <i className="fa-brands fa-facebook" />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#0">
+                <Link to="https://github.com/CrossOriGenes" target="_blank">
                   <i className="fa-brands fa-github" />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div className="column large-full ss-copyright">
-            <span>© 2023-24 CrossOriGenes</span>
+            <span>© 2024-25 CrossOriGenes</span>
             <span>
               All rights reserved
             </span>

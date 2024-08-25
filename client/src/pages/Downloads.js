@@ -1,22 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ScrollToTop from "react-scroll-to-top";
 import Header from "../components/UI/Header";
 import DownloadSection from "../components/download-section/DownloadSection";
 import LinkSection from "../components/download-section/LinkSection";
 
 function DownloadsPage() {
-  // const [toggleGotoTop, setToggleGotoTop] = useState();
   const [menuIsOpen, setMenuIsOpen] = useState();
-
-  // const handleScroll = () => {
-  //   const position = window.pageYOffset;
-
-  //   if (position >= 0 && position <= 100) {
-  //     setToggleGotoTop(false);
-  //   } else if (position === 800) {
-  //     setToggleGotoTop(true);
-  //   }
-  // };
 
   /* mobile menu
    * ---------------------------------------------------- */
@@ -70,6 +60,10 @@ function DownloadsPage() {
     ================================================== */}
       <LinkSection />
       {/* end s-links */}
+
+      {/* go to top button */}
+      <ScrollToTop smooth />
+      {/* //go to top button */}
     </div>
   );
 }

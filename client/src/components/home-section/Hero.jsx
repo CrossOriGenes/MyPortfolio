@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
 
 const Hero = () => {
@@ -47,43 +48,17 @@ const Hero = () => {
             </ReactTyped>
           </h2>
 
-          <ul className="hero-social">
-            <li>
-              <a href="#0" title="">
-                Twitter
-              </a>
-            </li>
-            <li>
-              <a href="https://www.behance.net/snehodiptodas" title="">
-                Behance
-              </a>
-            </li>
-            <li>
-              <a href="https://dribbble.com/Riju14" title="">
-                Dribbble
-              </a>
-            </li>
-          </ul>
+          <div className="hero-social">
+            <a className="btn btn--primary btn--stroke" href="#contact">
+              hire me
+            </a>
+          </div>
           {/* <!-- end hero-social --> */}
         </div>
       </div>
       {/* <!-- end hero-content --> */}
-
-      {/* <div className="hero-scroll">
-        <a href="#about" className="scroll-link smoothscroll">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 24l-8-9h6v-15h4v15h6z" />
-          </svg>
-        </a>
-      </div> */}
-      {/* <!-- end hero-scroll --> */}
     </section>
   );
-}
+};
 
 export default Hero;

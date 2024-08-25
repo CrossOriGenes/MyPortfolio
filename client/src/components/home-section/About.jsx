@@ -139,21 +139,20 @@ const About = () => {
                 className="far fa-dot-circle text-primary position-absolute"
                 style={{ top: 2, left: "-30px" }}
               />
-              <div className="position__header">
-                <h6 className="font-weight-bold mb-1">Fresher</h6>
-              </div>
               {/* <div className="position__header">
+                <h6 className="font-weight-bold mb-1">Fresher</h6>
+              </div> */}
+              <div className="position__header">
                 <h6 className="font-weight-bold mb-1">Frontend Developer</h6>
                 <div className="position__timeframe mb-2">
-                  <strong>Webstrummer Infolab</strong> |{" "}
+                  <strong>Self Owned</strong> |{" "}
                   <small>2022 - Present</small>
                 </div>
-              </div> 
+              </div>
               <p>
-                Currently posted as a Frontend developer based on Laravel
-                framework for websites focussing on Event Management Systems
-                (EMS).
-              </p>*/}
+                Currently specializing on Frontend development based on React
+                for websites and as an UI designer.
+              </p>
             </div>
           </div>
           <h3 className="mb-4">Hobbies</h3>
