@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/UI/Header';
 import DonationCardPanel from '../components/donation-section/DonationCardPanel';
 import { loadScript } from '../utils/Utilities';
+import { toast } from 'react-toastify';
 
 function DonateMe() {
+  const navigate = useNavigate()
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   /* mobile menu
@@ -14,43 +16,67 @@ function DonateMe() {
     setMenuIsOpen((prev) => !prev);
   };
 
-  const initPayment = (data) => {
+  const initPayment = (data, userData) => {
     const options = {
       key: process.env.REACT_APP_RAZORPAY_KEY,
       amount: data.amount,
       currency: data.currency,
       name: "Buy me a Coffee",
-      description: "Donate Us",
-      image: "icon(dark).png",
+      description: "Buy me a Coffee",
+      image: "coffee-image.png",
       order_id: data.id,
       handler: async (response) => {
         try {
-          const verifyUrl = "http://localhost:8000/payments/verify";
-          const { data } = await axios.post(verifyUrl, response);
-          console.log(data);
+          const res = await toast.promise(
+            fetch("http://localhost:8000/payments/verify", {
+            method: 'POST',
+            body: JSON.stringify(response),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }),
+          {
+            pending: 'Completing payment... Please do not cancel/exit'
+          });
+          const result = await res.json()
+          if (res.status === 200) {
+            navigate(`../success?sign=${response.razorpay_signature}`)
+            toast.success(result.message)
+            // console.log(result);
+          } else {
+            toast.error(result.message)
+          }
         } catch (error) {
           console.log(error);
         }
       },
+      prefill: {
+        name: userData.username,
+        email: userData.email
+      },
       theme: {
-        color: "#000099"
+        color: "#3366cc"
       },
     };
     const rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
 
-
   const paymentHandler = async (userData) => {
     try {
       const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
-      if (!res){
+      if (!res) {
         alert('Razropay failed to load!!')
-        return 
+        return
       }
-      const { data } = await axios.post("http://localhost:8000/payments/donation", userData)
+      const { data: { data } } = await toast.promise(
+        axios.post("http://localhost:8000/payments/donation", userData),
+        {
+          pending: 'Redirecting...'
+        }
+      )
       console.log(data);
-      initPayment(data.data);
+      initPayment(data, userData);
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +87,6 @@ function DonateMe() {
       {/* Header NavBar */}
       <Header headerClasses="s-header" onClick={handleMenuToggle}>
         <div className="header-content">
-
           <Link className="btn btn--stroke btn--small" to='..'>
             Back
           </Link>
@@ -91,6 +116,7 @@ function DonateMe() {
                 </p>
               </div>
               <Link to='..' className='btn btn--secondary'>My Page</Link>
+              {/* <Link to="success" className='btn btn--secondary'>My Page</Link> */}
             </div>
 
             <div className="column container col-md-6 tab-full mt-tab-7">

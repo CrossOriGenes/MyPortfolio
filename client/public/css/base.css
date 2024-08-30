@@ -1464,3 +1464,14 @@ textarea {
 .my-8 {
 	margin-top: 5rem !important;
 }
+
+
+@media screen and (max-width: 900px) {
+	.mt-md-5 {
+		margin-top: 5rem !important;
+	}
+
+	.ml-md-2 {
+		margin-left: 2rem !important;
+	}
+}

@@ -42,48 +42,6 @@ export const pswpImages = [
             description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
         }
     },
-    {
-        id: 4,
-        largeURL: "images/portfolio/gallery/g-sand-dunes.jpg",
-        thumbnailURL: "images/portfolio/sand-dunes.jpg",
-        // thumbnailURLSets: "images/portfolio/sand-dunes.jpg    1x, images/portfolio/sand-dunes@2x.jpg 2x",
-        width: 1050,
-        height: 700,
-        info: {
-            category: "Frontend Design",
-            title: "Sand Dunes",
-            projectLink: "https://www.behance.net/",
-            description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
-        }
-    },
-    {
-        id: 5,
-        largeURL: "images/portfolio/gallery/g-woodcraft.jpg",
-        thumbnailURL: "images/portfolio/woodcraft.jpg",
-        // thumbnailURLSets: "images/portfolio/woodcraft.jpg    1x, images/portfolio/woodcraft@2x.jpg 2x",
-        width: 1050,
-        height: 700,
-        info: {
-            category: "Product Design",
-            title: "Woodcraft",
-            projectLink: "https://www.behance.net/",
-            description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
-        }
-    },
-    {
-        id: 6,
-        largeURL: "images/portfolio/gallery/g-lamp.jpg",
-        thumbnailURL: "images/portfolio/lamp.jpg",
-        // thumbnailURLSets: "images/portfolio/lamp.jpg    1x, images/portfolio/lamp@2x.jpg 2x",
-        width: 1050,
-        height: 700,
-        info: {
-            category: "Product Design",
-            title: "The Lamp",
-            projectLink: "https://www.behance.net/",
-            description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
-        }
-    },
 ];
 
 
@@ -119,16 +77,16 @@ export async function createDownloadLink(link, fileName) {
     axios.get(link, {
         responseType: 'blob'
     })
-        .then(response => {
-            const path = URL.createObjectURL(response.data)
-            const linkElem = document.createElement('a')
-            linkElem.href = path
-            linkElem.download = fileName
-            document.body.appendChild(linkElem)
-            linkElem.click()
-            linkElem.remove()
-            toast.success('Downloading Successful✔️')
-        })
+    .then(response => {
+        const path = URL.createObjectURL(response.data)
+        const linkElem = document.createElement('a')
+        linkElem.href = path
+        linkElem.download = fileName
+        document.body.appendChild(linkElem)
+        linkElem.click()
+        linkElem.remove()
+        toast.success('Downloading Successful✔️')
+    })
 
 }
 
@@ -145,3 +103,38 @@ export function loadScript(src) {
         document.body.appendChild(script)
     })
 }
+
+export function paymentTypeReturns(data) {
+    switch (data.method) {
+        case "netbanking":
+            return `${data.bank} - Netbanking`
+        case "upi":
+            return data.vpa
+        case "card":
+            return `${data.card.network}\t XX${data.card.last4}`
+        case "wallet":
+            return `${data.wallet} E-Wallet`
+        default:
+            return null
+    }
+}
+
+
+export function getTime(query) {
+    const options = {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+    }
+    const dd = new Date(query)
+    const date = dd.toLocaleDateString('en-GB', options)
+    let hr = dd.getHours()
+    let min = dd.getMinutes()
+    let ampm = hr >= 12 ? 'pm' : 'am'
+    hr = Math.abs(hr - 12)
+    const time = hr + ':' + min + ' ' + ampm
+    return `${date}, ${time}`
+}
+
+// const query = '2024-08-28T10:09:19.945+00:00'
+// document.write(getTime(query))

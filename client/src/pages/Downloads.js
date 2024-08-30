@@ -6,7 +6,7 @@ import DownloadSection from "../components/download-section/DownloadSection";
 import LinkSection from "../components/download-section/LinkSection";
 
 function DownloadsPage() {
-  const [menuIsOpen, setMenuIsOpen] = useState();
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   /* mobile menu
    * ---------------------------------------------------- */

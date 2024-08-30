@@ -31,7 +31,7 @@ const Testimonial = () => {
                     />
                     <cite className="testimonial-slider__cite">
                       <strong>Anup Kumar Paswan</strong>
-                      <span>Freelancer / Teacher</span>
+                      <span>Freelancer / Instructor</span>
                     </cite>
                   </div>
                 </div>

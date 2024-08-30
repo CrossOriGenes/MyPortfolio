@@ -58,7 +58,6 @@ const DownloadSection = () => {
 
       if (response.ok) {
         createDownloadLink(process.env.REACT_APP_ZIP_LINK, "Certificates");
-        // createDownloadLink("https://res.cloudinary.com/dtfoedy3u/raw/upload/v1724003816/course-certificates_rl0rdl.zip", "Certificates");
         setTimeout(() => {
           toast.info(result.msg);
         }, 1500);
@@ -98,9 +97,9 @@ const DownloadSection = () => {
                   style={{ fontWeight: "300", color: "#222" }}
                 >
                   Here is the actual downloadable CV describing myself and my
-                  bio in short. You can also download and view my achievement
+                  bio in short. You can also download and view my technical achievement
                   certificates from here just by providing your name and email
-                  for human confirmation.
+                  for so that I can thank you with an email confirmation.
                 </p>
               </div>
             </div>

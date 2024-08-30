@@ -10,7 +10,7 @@ import Services from "../components/home-section/Services";
 import Portfolio from "../components/home-section/Portfolio";
 
 function HomePage() {
-  const [menuIsOpen, setMenuIsOpen] = useState();
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   /* mobile menu
    * ---------------------------------------------------- */

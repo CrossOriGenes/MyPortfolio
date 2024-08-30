@@ -1606,7 +1606,8 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 
 }
 
-@media print, projection {
+@media print,
+projection {
   .str {
     color: #006600;
   }
@@ -1705,7 +1706,8 @@ li.L9 {
   -ms-touch-action: none;
   touch-action: none;
   z-index: 1500;
-  -webkit-text-size-adjust: 100%;  /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
+  -webkit-text-size-adjust: 100%;
+  /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
   text-size-adjust: 100%;
   -webkit-backface-visibility: hidden;
   outline: none;
@@ -1725,7 +1727,8 @@ li.L9 {
 
   /* 0.001, because opacity:0 doesn't trigger Paint action, which causes lag at start of transition */
   opacity: 0.001;
-  will-change: opacity;  /* for open/close transition */
+  will-change: opacity;
+  /* for open/close transition */
   -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
   transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
 }
@@ -1811,7 +1814,8 @@ li.L9 {
   position: absolute;
   width: 100%;
   -webkit-transform-origin: left top;
-  transform-origin: left top;  /* for open/close transition */
+  transform-origin: left top;
+  /* for open/close transition */
   -webkit-transition: -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
   transition: -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
   transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
@@ -1819,7 +1823,8 @@ li.L9 {
 }
 
 .pswp__bg {
-  will-change: opacity;  /* for open/close transition */
+  will-change: opacity;
+  /* for open/close transition */
   -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
   transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
 }
@@ -1973,7 +1978,10 @@ over element that should close gallery
   height: 44px;
 }
 
-@media (-webkit-min-device-pixel-ratio:1.1), (-webkit-min-device-pixel-ratio:1.09375), (min-resolution:105dpi), (min-resolution:1.1dppx) {
+@media (-webkit-min-device-pixel-ratio:1.1),
+(-webkit-min-device-pixel-ratio:1.09375),
+(min-resolution:105dpi),
+(min-resolution:1.1dppx) {
 
   /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
   .pswp--svg .pswp__button,
@@ -2506,4 +2514,24 @@ a.pswp__share--download:hover {
 
 .pswp--minimal--dark .pswp__top-bar {
   background: none;
+}
+
+.badge {
+  position: relative;
+  display: flex;
+  padding: 0.7rem 1.2rem;
+  border-radius: 18px;
+  font-size: 1.3rem;
+  font-family: 'Poppins';
+  font-weight: 500;
+  background: #542aa0;
+  margin: -0.5rem 1rem 0;
+  color: #aaa;
+}
+
+.badge strong {
+  font: inherit;
+  margin-left: 0.4rem;
+  color: #ffffff;
+  text-transform: uppercase;
 }

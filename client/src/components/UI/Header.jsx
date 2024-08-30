@@ -7,7 +7,7 @@ function Header({ headerClasses, children, onClick }) {
       <header className={`s-header ${headerClasses}`} data-aos="fade-down">
         <div className="header-logo">
           <Link to="..">
-            <img src="./icon.png" alt="" />
+            <img src="icon.png" alt="" />
           </Link>
         </div>
         {children}
