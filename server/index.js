@@ -18,7 +18,7 @@ app.use(cors({
     credentials: true
 }))
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 // app.use(
 //     session({
 //         secret: process.env.SESSION_SECRET,
