@@ -59,11 +59,10 @@ const Testimonial = () => {
                 {/* slide 3 */}
                 <div className="testimonial-slider__slide">
                   <p>
-                    Repellat dignissimos libero. Qui sed at corrupti expedita
-                    voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed
-                    ipsam. Autem eaque officia cum exercitationem sunt
-                    voluptatum accusamus. Quasi voluptas eius distinctio.
-                    Voluptatem dignissimos ut.
+                    The works are really awesome. Specially the designs and
+                    ergonomic structures. Personally working with him was a best
+                    ever experiencing bond ever. He is both very down-to-earth
+                    and a kind-to-heart person.
                   </p>
                   <div className="testimonial-slider__author">
                     <img
