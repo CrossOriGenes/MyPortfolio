@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
 
 import Root from "./pages/Root";
 import HomePage from "./pages/HomePage";
@@ -6,7 +6,6 @@ import DownloadsPage from "./pages/Downloads";
 import DonateMe from "./pages/DonateMe";
 import PaymentConfirmed from "./pages/PaymentConfirmed";
 import ErrorElement from "./components/UI/ErrorElement";
-import { loader } from "./pages/PaymentConfirmed";
 
 const router = createBrowserRouter([
   {
@@ -17,13 +16,22 @@ const router = createBrowserRouter([
       { path: "", index: true, element: <HomePage /> },
       { path: "downloads", element: <DownloadsPage /> },
       { path: "donate", element: <DonateMe /> },
-      { path: "success", 
-        element: <PaymentConfirmed />, 
-        // loader: loader 
+      {
+        path: "success", element: (
+          <PaymentSuccessRouteProtector>
+            <PaymentConfirmed />
+          </PaymentSuccessRouteProtector>
+        )
       },
     ],
   },
 ]);
+
+function PaymentSuccessRouteProtector({ children }) {
+  const location = useLocation();
+  const signature = new URLSearchParams(location.search).get('sign')
+  return !signature ? <ErrorElement /> : children;
+}
 
 function App() {
   return <RouterProvider router={router} />;

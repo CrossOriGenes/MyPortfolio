@@ -39,6 +39,7 @@ function DonateMe() {
             pending: 'Completing payment... Please do not cancel/exit'
           });
           const result = await res.json()
+          console.log("initPay"+ result)
           if (res.status === 200) {
             navigate(`../success?sign=${response.razorpay_signature}`)
             toast.success(result.message)

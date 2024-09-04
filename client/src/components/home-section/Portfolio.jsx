@@ -1,24 +1,30 @@
-import { useEffect } from "react";
-import PhotoSwipeLightbox from "photoswipe/lightbox";
-import "photoswipe/style.css";
-
-import { pswpImages } from "../../utils/Utilities";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import ProjectSkeletonSection from "../UI/PortfolioSkeleton";
+import { toast } from "react-toastify";
 
 const Portfolio = () => {
-  useEffect(() => {
-    /* photoswipe
-     * ----------------------------------------------------- */
-    let lightbox = new PhotoSwipeLightbox({
-      gallery: "#my-project__gallery",
-      children: "a",
-      pswpModule: () => import("photoswipe"),
-    });
-    lightbox.init();
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-    return () => {
-      lightbox.destroy();
-      lightbox = null;
-    };
+  async function fetchProjects() {
+    try {
+      setLoading(true);
+      const response = await fetch("http://localhost:8000/api/allProjects");
+      const result = await response.json();
+      if (!response.ok) {
+        toast.error(result.msg || "Failed to fetch available posts!");
+      }
+      setLoading(false);
+      setData(result);
+      // console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchProjects();
   }, []);
 
   return (
@@ -38,48 +44,47 @@ const Portfolio = () => {
         className="row s-porfolio__list block-large-1-2 collapse-col"
         id="my-project__gallery"
       >
-        {pswpImages.map(
-          (image) => (
-            <div className="column" data-aos="fade-up" key={image.id}>
+        {loading ? (
+          <ProjectSkeletonSection />
+        ) : (
+          data.map((image) => (
+            <div className="column" data-aos="fade-up" key={image._id}>
               <div className="folio-item">
                 <div className="folio-item__thumb">
                   <a
                     className="folio-item__thumb-link"
-                    href={image.largeURL}
+                    href={image.largeURL.src}
                     data-pswp-width={image.width}
                     data-pswp-height={image.height}
-                    key={`my-project__gallery-${image.id}`}
+                    key={`my-project__gallery-${image._id}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <img
-                      src={image.thumbnailURL}
-                      // srcSet={image.thumbnailURLSets}
-                      alt=""
-                    />
+                    <img src={image.thumbnailURL.src} alt="" />
                   </a>
                 </div>
                 <div className="folio-item__info">
-                  <div className="folio-item__cat">{image.info.category}</div>
-                  <h4 className="folio-item__title">{image.info.title}</h4>
+                  <div className="folio-item__cat">{image.category}</div>
+                  <h4 className="folio-item__title">{image.title}</h4>
                 </div>
-                <a
-                  href={image.info.projectLink}
+                <Link
+                  to={image.projectLink}
                   title="Project Link"
                   className="folio-item__project-link"
+                  target="_blank"
                 >
                   Project Link
-                </a>
+                </Link>
                 <div className="folio-item__caption">
-                  <p>{image.info.description}</p>
+                  <p>{image.description}</p>
                 </div>
               </div>
             </div>
-          )
-          // {/* end column */}
+          ))
         )}
       </div>
       {/* folio-list */}
+
     </section>
   );
 };

@@ -1,4 +1,36 @@
-function dwnldConfirmationMail(username) {
+function paymentTypeReturns(data) {
+    // console.log(111,data)
+    switch (data.method) {
+        case "netbanking":
+            return `${data.bank} - Netbanking`
+        case "upi":
+            return data.vpa
+        case "card":
+            return `${data.card_network}\t **${data.card_last4}`;
+        case "wallet":
+            return `${data.wallet} E-Wallet`
+        default:
+            return null
+    }
+}
+
+function getTime(query) {
+    const options = {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+    }
+    const dd = new Date(query)
+    const date = dd.toLocaleDateString('en-GB', options)
+    let hr = dd.getHours()
+    let min = dd.getMinutes()
+    let ampm = hr >= 12 ? 'pm' : 'am'
+    hr = Math.abs(hr - 12)
+    const time = hr + ':' + min + ' ' + ampm
+    return `${date}, ${time}`
+}
+
+function paymentSuccessMail(data) {
     return `
     <!doctype html>
 <html>
@@ -288,10 +320,8 @@ function dwnldConfirmationMail(username) {
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                         <td style="text-align: center;">
-                            <img
-                                src="https://res.cloudinary.com/dtfoedy3u/image/upload/v1719813756/vddamfgohqoza6fysb5c.png"
-                                height="70" alt="CrossOriGenes"
-                            >
+                            <img src="https://res.cloudinary.com/dtfoedy3u/image/upload/v1719813756/vddamfgohqoza6fysb5c.png"
+                                height="70" alt="CrossOriGenes">
                         </td>
                     </tr>
                 </table>
@@ -304,33 +334,93 @@ function dwnldConfirmationMail(username) {
                                 <tr>
                                     <td>
                                         <h2 style="font-size: 2rem; color: #ffffff; font-weight: 700;">Hi, <span
-                                                style="color: #d70068;font-size: 2rem !important;">${username}</span>
+                                                style="color: #d70068; text-transform: uppercase;font-size: 2rem !important;">${data.donor_name}</span>
                                         </h2>
 
                                         <p
                                             style="font-size: 1.4rem; font-weight: 400; line-height: 1.5rem;margin-top: 1rem;">
-                                            This email is a thanks note for your interaction with me. Thank you so much
-                                            for downloading my CV and/or Certificates. 😇
+                                            Thank you so much for making this donation!❤️ I am so thankful as you
+                                            liked my works and provied your precious time to admire them.
+                                            Below is your donation information I've received. We look forward to working
+                                            with you. <br>
+                                            Given below is the donation details summary for your convinience. You can
+                                            also view the confirmation message and details by clicking on the button
+                                            below.
                                         </p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0"
-                                            style="margin-top: 2rem;">
+                                            style="padding-inline: 2rem;margin-top: 2rem;margin-bottom: 2rem;text-align: center;">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="btn btn-primary">
+                                                        <a href="http://localhost:3000/success?sign=${data.signature}"
+                                                            target="_blank">View Payment details</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table
+                                            style="margin-block: 1rem;padding-block: 0.5rem">
+                                            <caption
+                                                style="font-size: 1.2rem; font-weight: 700; color: #5d6576;text-align: left;border-bottom: 2px solid #777 !important;">
+                                                ORDER SUMMARY</caption>
+                                            <thead style="text-align: left;color: #aaa;">
+                                                <tr>
+                                                    <th>Payment Date</th>
+                                                    <th>Transaction ID</th>
+                                                    <th>Method</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>${getTime(data.created_at)}</td>
+                                                    <td>${data.receipt}</td>
+                                                    <td>${paymentTypeReturns(data)}</td>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                        <hr width="100%" size="3px" color="#aaa" style="margin-block: 1rem 2rem;" />
+                                        <table style="width: 100% !important;">
+                                                <tbody style="color: #ccc;">
+                                                    <tr style="display: flex !important; justify-content: space-between !important; align-items: center !important;">
+                                                        <td style="display: inline-flex !important; align-items: center !important;">
+                                                            <div
+                                                                style="position: relative;width: 80px;height: 80px;overflow: hidden;">
+                                                                <img src="https://res.cloudinary.com/dtfoedy3u/image/upload/v1725385566/coffee-image_q6k2up.png"
+                                                                    style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;object-fit: cover;" />
+                                                            </div>
+                                                            <strong style="margin-left: 1rem;">Buy me a
+                                                                Coffee (Donation)</strong>
+                                                        </td>
+                                                        <td>Qty: 1</td>
+                                                        <td>
+                                                            <strong>&#8377; ${data.amount}</strong>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        <hr width="100%" size="3px" color="#aaa" style="margin-block: 1rem 2rem;" />
+                                        <table>
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <p style="font-size: 1.1rem !important; color: #ffffbc;">
-                                                            View my projects and works by clicking <a
-                                                                href="http://localhost:3000/#portfolio" target="_blank"
+                                                        <p>
+                                                            Please support me of my works as you did before. Just to
+                                                            make you aware
+                                                            of
+                                                            any issues or other service related queries you can reach me
+                                                            from <a href="http://localhost:3000/#contact"
+                                                                target="_blank"
                                                                 style="font-weight: 600; color: #00c1f2;">here</a>.<br>
-                                                            Buy me a coffee by clicking over <a
-                                                                href="http://localhost:3000/donate" target="_blank"
-                                                                style="font-weight: 600; color: #00c1f2;">here</a>.<br>
+                                                            Also any future donation can be applied towards this if you
+                                                            so choose to
+                                                            clicking over <a href="http://localhost:3000/donate"
+                                                                target="_blank"
+                                                                style="font-weight: 600; color: #00c1f2;">here</a>.
                                                         </p>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <p
-                                            style="margin-top: 2rem !important; font-size: 1.5rem; font-weight: 500; line-height: 1.5rem;">
+                                            style="margin-top: 1rem !important; font-size: 1.5rem; font-weight: 500; line-height: 1.5rem;">
                                             <br><br>
                                             with Regards,<br>
                                             <span style="font-size: 1.3rem;font-weight: 600;color: #6d94b0;">team
@@ -346,8 +436,8 @@ function dwnldConfirmationMail(username) {
                 <div class="footer">
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                         <tr>
-                            <td class="content-block">Don't like these emails? <a
-                                    href="http://localhost:3000/unsubscribe">Unsubscribe</a>.
+                            <td class="content-block">Problems? Contact our <a
+                                    href="http://localhost:3000/support">Customer Support</a>.
                             </td>
                         </tr>
                         <tr>
@@ -364,8 +454,7 @@ function dwnldConfirmationMail(username) {
     </table>
 </body>
 
-</html>
-    `;
+</html>`
 }
 
-module.exports = dwnldConfirmationMail
+module.exports = paymentSuccessMail

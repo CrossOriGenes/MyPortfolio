@@ -2,47 +2,47 @@ import { toast } from "react-toastify";
 import axios from 'axios'
 
 // photoswipe images
-export const pswpImages = [
-    {
-        id: 1,
-        largeURL: "images/portfolio/gallery/password-validator_thumbnail(large).jpg",
-        thumbnailURL: "images/portfolio/password-validator_thumbnail.jpg",
-        width: 1050,
-        height: 700,
-        info: {
-            category: "Frontend Design",
-            title: "Password-Validator",
-            projectLink: "https://www.behance.net/",
-            description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
-        }
-    },
-    {
-        id: 2,
-        largeURL: "images/portfolio/gallery/noteify_thumbnail(large).jpg",
-        thumbnailURL: "images/portfolio/noteify_thumbnail.jpg",
-        width: 1050,
-        height: 700,
-        info: {
-            category: "Full-Stack",
-            title: "Notes App",
-            projectLink: "https://www.behance.net/",
-            description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
-        }
-    },
-    {
-        id: 3,
-        largeURL: "images/portfolio/gallery/testify_thumbnail(large).jpg",
-        thumbnailURL: "images/portfolio/testify_thumbnail.jpg",
-        width: 1050,
-        height: 700,
-        info: {
-            category: "Full-Stack",
-            title: "Online Test App",
-            projectLink: "https://crossorigenes.github.io/Testify",
-            description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
-        }
-    },
-];
+// export const pswpImages = [
+//     {
+//         id: 1,
+//         largeURL: "images/portfolio/gallery/password-validator_thumbnail(large).jpg",
+//         thumbnailURL: "images/portfolio/password-validator_thumbnail.jpg",
+//         width: 1050,
+//         height: 700,
+//         info: {
+//             category: "Frontend Design",
+//             title: "Password-Validator",
+//             projectLink: "https://www.behance.net/",
+//             description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
+//         }
+//     },
+//     {
+//         id: 2,
+//         largeURL: "images/portfolio/gallery/noteify_thumbnail(large).jpg",
+//         thumbnailURL: "images/portfolio/noteify_thumbnail.jpg",
+//         width: 1050,
+//         height: 700,
+//         info: {
+//             category: "Full-Stack",
+//             title: "Notes App",
+//             projectLink: "https://www.behance.net/",
+//             description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
+//         }
+//     },
+//     {
+//         id: 3,
+//         largeURL: "images/portfolio/gallery/testify_thumbnail(large).jpg",
+//         thumbnailURL: "images/portfolio/testify_thumbnail.jpg",
+//         width: 1050,
+//         height: 700,
+//         info: {
+//             category: "Full-Stack",
+//             title: "Online Test App",
+//             projectLink: "https://crossorigenes.github.io/Testify",
+//             description: "Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi."
+//         }
+//     },
+// ];
 
 
 //slick slider settings
@@ -77,16 +77,19 @@ export async function createDownloadLink(link, fileName) {
     axios.get(link, {
         responseType: 'blob'
     })
-    .then(response => {
-        const path = URL.createObjectURL(response.data)
-        const linkElem = document.createElement('a')
-        linkElem.href = path
-        linkElem.download = fileName
-        document.body.appendChild(linkElem)
-        linkElem.click()
-        linkElem.remove()
-        toast.success('Downloading Successful✔️')
-    })
+        .then(response => {
+            const path = URL.createObjectURL(response.data)
+            const linkElem = document.createElement('a')
+            linkElem.href = path
+            linkElem.download = fileName
+            document.body.appendChild(linkElem)
+            linkElem.click()
+            linkElem.remove()
+            toast.success('Downloading Successful✔️')
+        })
+        .catch(err => {
+            console.log(err)
+        })
 
 }
 
@@ -105,13 +108,14 @@ export function loadScript(src) {
 }
 
 export function paymentTypeReturns(data) {
+    // console.log(111,data)
     switch (data.method) {
         case "netbanking":
             return `${data.bank} - Netbanking`
         case "upi":
             return data.vpa
         case "card":
-            return `${data.card.network}\t XX${data.card.last4}`
+            return `${data.card_network}\t **${data.card_last4}`;
         case "wallet":
             return `${data.wallet} E-Wallet`
         default:

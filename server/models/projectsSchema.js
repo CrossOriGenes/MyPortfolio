@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
-const ImageSchema = new mongoose.Schema({
-    src: {
+const ImageSchema = new mongoose.Schema({    
+    image_id: {
         type: String
     },
-    image_id: {
+    src: {
         type: String
     },
     _id: false

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Skeleton,Alert } from '@mui/material'
+import { Skeleton } from '@mui/material'
 import Header from '../components/UI/Header';
 import ScrollToTop from "react-scroll-to-top";
 import { getTime, paymentTypeReturns } from '../utils/Utilities'
@@ -46,17 +46,14 @@ function PaymentConfirmed() {
         try {
             setLoading(true)
             const response = await fetch(`http://localhost:8000/payments/getDetails/${signature}`);
-
             if (!response.ok) {
                 toast.error('Something Went wrong! Try again later')
             }
-
             const result = await response.json();
             setLoading(false)
-
-            console.log(result)
-            setData(result)
-            //   return result;
+            toast.info(result.msg)
+            // console.log(5, result)
+            setData(result.data)
         } catch (error) {
             console.log(error)
         }
@@ -146,9 +143,6 @@ function PaymentConfirmed() {
                                         <aside className="pull-quote">
                                             <blockquote>
                                                 <p>{data.donor_message}</p>
-                                                <div className='quote-footer'>
-                                                    <cite>By donor</cite>
-                                                </div>
                                             </blockquote>
                                         </aside>
                                     </div>}
@@ -168,13 +162,3 @@ function PaymentConfirmed() {
 
 export default PaymentConfirmed
 
-
-export function loader() {
-    // get the sign query
-    const signature = new URLSearchParams(window.location).get('sign');
-    console.log(signature)
-
-    // return defer({
-    //   transactionData: fetchPaymentData(signature)
-    // });
-}

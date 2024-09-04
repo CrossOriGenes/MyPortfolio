@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import ScrollToTop from "react-scroll-to-top";
 import Header from "../components/UI/Header";
@@ -8,6 +8,8 @@ import Testimonial from "../components/home-section/Testimonial";
 import About from "../components/home-section/About";
 import Services from "../components/home-section/Services";
 import Portfolio from "../components/home-section/Portfolio";
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import "photoswipe/style.css";
 
 function HomePage() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -17,6 +19,23 @@ function HomePage() {
   const handleMenuToggle = () => {
     setMenuIsOpen((menuIsOpen) => !menuIsOpen);
   };
+  
+  useEffect(() => {
+    /* photoswipe
+     * ----------------------------------------------------- */
+    let lightbox = new PhotoSwipeLightbox({
+      gallery: "#my-project__gallery",
+      children: ".folio-item__thumb-link",
+      pswpModule: () => import("photoswipe"),
+    });
+    lightbox.init();
+
+    return () => {
+      lightbox.destroy();
+      lightbox = null;
+    };
+  }, []);
+
 
   return (
     <div id="top" className={menuIsOpen ? "menu-is-open" : ""}>

@@ -11,7 +11,7 @@ router.post('/', async (req, res, next) => {
 
         if (user) {
             const result = await User.findOneAndUpdate({ email: req.body.email }, { user_name: req.body.username, timestamp: Date.now() })
-            console.log(result)
+            // console.log(result)
         } else {
             const data = new User({
                 user_name: req.body.username,
