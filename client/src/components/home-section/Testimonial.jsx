@@ -1,7 +1,5 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-
 import { slickSettings } from "../../utils/Utilities";
 import { Link } from "react-router-dom";
 
@@ -66,34 +64,30 @@ const Testimonial = () => {
                   </p>
                   <div className="testimonial-slider__author">
                     <img
-                      src="images/avatars/user-04.jpg"
+                      src="images/avatars/client-03.png"
                       alt=""
                       className="testimonial-slider__avatar"
                     />
                     <cite className="testimonial-slider__cite">
-                      <strong>Satya Nadella</strong>
-                      <span>CEO, Microsoft</span>
+                      <strong>Arjun Roy</strong>
+                      <span>UI Designer, TISCO</span>
                     </cite>
                   </div>
                 </div>
                 {/* slide 4 */}
                 <div className="testimonial-slider__slide">
                   <p>
-                    Nunc interdum lacus sit amet orci. Vestibulum dapibus nunc
-                    ac augue. Fusce vel dui. In ac felis quis tortor malesuada
-                    pretium. Curabitur vestibulum aliquam leo. Qui sed at
-                    corrupti expedita voluptas odit. Nihil ea quia nesciunt.
-                    Ducimus aut sed ipsam.
+                    A great UI builder with a great brain in web-development!
                   </p>
                   <div className="testimonial-slider__author">
                     <img
-                      src="images/avatars/user-05.jpg"
+                      src="images/avatars/client-04.png"
                       alt=""
                       className="testimonial-slider__avatar"
                     />
                     <cite className="testimonial-slider__cite">
-                      <strong>Jeff Bezos</strong>
-                      <span>CEO, Amazon</span>
+                      <strong>Rahul Bhattacharya </strong>
+                      <span>Co-Founder/Producer at Irised Solutions Pvt. Ltd.</span>
                     </cite>
                   </div>
                 </div>
@@ -128,7 +122,7 @@ const Testimonial = () => {
                 this link
               </p>
               <Link
-                to="http://localhost:3000/donate"
+                to="https://crossorigenes148.onrender.com/donate"
                 className="btn btn--primary h-full-width"
               >
                 Buy me a Coffee

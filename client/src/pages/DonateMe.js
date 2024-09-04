@@ -28,7 +28,7 @@ function DonateMe() {
       handler: async (response) => {
         try {
           const res = await toast.promise(
-            fetch("http://localhost:8000/payments/verify", {
+            fetch("https://crossorigenes148.onrender.com/payments/verify", {
             method: 'POST',
             body: JSON.stringify(response),
             headers: {
@@ -39,7 +39,7 @@ function DonateMe() {
             pending: 'Completing payment... Please do not cancel/exit'
           });
           const result = await res.json()
-          console.log("initPay"+ result)
+
           if (res.status === 200) {
             navigate(`../success?sign=${response.razorpay_signature}`)
             toast.success(result.message)
@@ -71,12 +71,12 @@ function DonateMe() {
         return
       }
       const { data: { data } } = await toast.promise(
-        axios.post("http://localhost:8000/payments/donation", userData),
+        axios.post("https://crossorigenes148.onrender.com/payments/donation", userData),
         {
           pending: 'Redirecting...'
         }
       )
-      console.log(data);
+      // console.log(data);
       initPayment(data, userData);
     } catch (error) {
       console.log(error);
@@ -117,7 +117,6 @@ function DonateMe() {
                 </p>
               </div>
               <Link to='..' className='btn btn--secondary'>My Page</Link>
-              {/* <Link to="success" className='btn btn--secondary'>My Page</Link> */}
             </div>
 
             <div className="column container col-md-6 tab-full mt-tab-7">

@@ -86,8 +86,8 @@ const About = () => {
               </div>
               <p>
                 Done both of my primary and secondary schooling from The TIGPS -
-                Hooghly, securing an aggregate of 80.3% (1<sup>st</sup> class)
-                in my Boards.
+                Hooghly (CBSE), securing an aggregate of 80.3% (1<sup>st</sup>{" "}
+                class) in my Boards.
               </p>
             </div>
             <div className="position-relative mb-4" data-aos="fade-up">
@@ -103,8 +103,8 @@ const About = () => {
                 </div>
               </div>
               <p>
-                Hence followed by the high schooling from the Hooghly Branch
-                with an aggregate of 84% (1<sup>st</sup> class) in my Higher
+                Hence followed by the high schooling from the WBCHSE board with
+                an aggregate of 84% (1<sup>st</sup> class) in my Higher
                 secondary.
               </p>
             </div>
@@ -124,8 +124,8 @@ const About = () => {
               </div>
               <p>
                 Affiliated under the University of Burwan, I persued my BCA
-                (Honours) Graduation degree from CIMT - Hooghly securing a CGPA
-                of 9.2 in aggregate.
+                (Honours) Graduation degree from The University of Burdwan
+                securing a CGPA of 9.2 in aggregate.
               </p>
             </div>
           </div>
@@ -145,8 +145,7 @@ const About = () => {
               <div className="position__header">
                 <h6 className="font-weight-bold mb-1">Frontend Developer</h6>
                 <div className="position__timeframe mb-2">
-                  <strong>Self Owned</strong> |{" "}
-                  <small>2022 - Present</small>
+                  <strong>Self Owned</strong> | <small>2022 - Present</small>
                 </div>
               </div>
               <p>

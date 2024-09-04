@@ -11,7 +11,7 @@ const DownloadSection = () => {
   const submitToDownloadCVHandler = async (userData) => {
     try {
       const response = await toast.promise(
-        fetch("http://localhost:8000/downloads", {
+        fetch("https://crossorigenes148.onrender.com/downloads", {
           method: "POST",
           body: JSON.stringify(userData),
           headers: {
@@ -41,7 +41,7 @@ const DownloadSection = () => {
   const submitToDownloadZipHandler = async (userData) => {
     try {
       const response = await toast.promise(
-        fetch("http://localhost:8000/downloads", {
+        fetch("https://crossorigenes148.onrender.com/downloads", {
           method: "POST",
           body: JSON.stringify(userData),
           headers: {

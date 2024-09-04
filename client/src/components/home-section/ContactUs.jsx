@@ -1,14 +1,20 @@
-// import { Link } from "react-router-dom";
-
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Alert } from "@mui/material";
+import ContactUsForm from "./ContactUsForm";
 
-const ContactUs = ({ toggleGotoTop }) => {
-  // // When the user clicks on the button, scroll to the top of the document
-  // function goToTop() {
-  //   document.body.scrollTop = 0;
-  //   document.documentElement.scrollTop = 0;
-  // }
+const ContactUs = () => {
+  const [errors, setErrors] = useState(null);
 
+  function submitContactDataHandler(emailData) {
+    try {
+      window.location.href = `mailto:crossorigenes@gmail.com?subject=${emailData.subject}&body=I am ${emailData.username}, ${emailData.body}`;
+      console.log(emailData);
+    } catch (err) {
+      setErrors(err || "Failed to send Email! 😢");
+      console.error(err);
+    }
+  }
   return (
     <>
       <footer id="contact" className="s-footer h-dark-bg">
@@ -51,43 +57,8 @@ const ContactUs = ({ toggleGotoTop }) => {
             </div>
           </div>
           <div className="column large-full mt-6" data-aos="fade-up">
-            <form>
-              <div
-                className="row form-row justify-content-center"
-                style={{ columnGap: "6rem" }}
-              >
-                <div className="form-group col-sm-5 pl-0">
-                  <input
-                    type="text"
-                    className="form-control p-4"
-                    id="inputUsername"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div className="form-group col-sm-5 pr-0">
-                <input
-                  type="text"
-                  className="form-control p-4"
-                  id="inputSubject"
-                  placeholder="Subject:  Hiring for a special web-design"
-                />
-                </div>
-              </div>
-              <div className="form-group col-md-11 d-flex justify-content-center m-auto">
-                <textarea
-                  className="form-control p-4"
-                  id="exampleFormControlTextarea1"
-                  rows={5}
-                  placeholder="Your Message..."
-                  defaultValue={""}
-                />
-              </div>
-              <div className="d-flex justify-content-center footer-email-us">
-                <button className="btn btn--primary h-full-width">
-                  Let's Talk
-                </button>
-              </div>
-            </form>
+            {errors && <Alert severity="error">{errors}</Alert>}
+            <ContactUsForm onSubmitData={submitContactDataHandler} />
           </div>
         </div>
         {/* end s-footer__main */}
@@ -102,12 +73,18 @@ const ContactUs = ({ toggleGotoTop }) => {
                 </Link>
               </li>
               <li>
-                <Link to="https://www.instagram.com/_.deeptoo._" target="_blank">
+                <Link
+                  to="https://www.instagram.com/_.deeptoo._"
+                  target="_blank"
+                >
                   <i className="fa-brands fa-instagram" />
                 </Link>
               </li>
               <li>
-                <Link to="https://www.facebook.com/snehodipto.das.37" target="_blank">
+                <Link
+                  to="https://www.facebook.com/snehodipto.das.37"
+                  target="_blank"
+                >
                   <i className="fa-brands fa-facebook" />
                 </Link>
               </li>
@@ -120,15 +97,12 @@ const ContactUs = ({ toggleGotoTop }) => {
           </div>
           <div className="column large-full ss-copyright">
             <span>© 2024-25 CrossOriGenes</span>
-            <span>
-              All rights reserved
-            </span>
+            <span>All rights reserved</span>
           </div>
           {/* end ss-copyright */}
         </div>
         {/* end s-footer__bottom */}
       </footer>
-      
     </>
   );
 };

@@ -352,7 +352,7 @@ function paymentSuccessMail(data) {
                                             <tbody>
                                                 <tr>
                                                     <td class="btn btn-primary">
-                                                        <a href="http://localhost:3000/success?sign=${data.signature}"
+                                                        <a href="https://crossorigenes148.onrender.com/success?sign=${data.signature}"
                                                             target="_blank">View Payment details</a>
                                                     </td>
                                                 </tr>
@@ -406,12 +406,12 @@ function paymentSuccessMail(data) {
                                                             make you aware
                                                             of
                                                             any issues or other service related queries you can reach me
-                                                            from <a href="http://localhost:3000/#contact"
+                                                            from <a href="https://crossorigenes148.onrender.com/#contact"
                                                                 target="_blank"
                                                                 style="font-weight: 600; color: #00c1f2;">here</a>.<br>
                                                             Also any future donation can be applied towards this if you
                                                             so choose to
-                                                            clicking over <a href="http://localhost:3000/donate"
+                                                            clicking over <a href="https://crossorigenes148.onrender.com/donate"
                                                                 target="_blank"
                                                                 style="font-weight: 600; color: #00c1f2;">here</a>.
                                                         </p>
@@ -437,12 +437,12 @@ function paymentSuccessMail(data) {
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td class="content-block">Problems? Contact our <a
-                                    href="http://localhost:3000/support">Customer Support</a>.
+                                    href="https://crossorigenes148.onrender.com/support">Customer Support</a>.
                             </td>
                         </tr>
                         <tr>
                             <td class="content-block powered-by">
-                                Powered by <a href="http://localhost:3000">CrossOriGenes</a>.
+                                Powered by <a href="https://crossorigenes148.onrender.com">CrossOriGenes</a>.
                             </td>
                         </tr>
                     </table>

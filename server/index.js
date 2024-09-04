@@ -3,8 +3,6 @@ const express = require('express')
 
 const mongoose = require('mongoose')
 const cors = require('cors')
-// const passport = require("passport");
-// const session = require('express-session')
 require('dotenv').config()
 
 const downloadRoutes = require('./routes/downloads')
@@ -18,21 +16,6 @@ app.use(cors({
     credentials: true
 }))
 
-// const __dirname = path.resolve();
-// app.use(
-//     session({
-//         secret: process.env.SESSION_SECRET,
-//         resave: false,
-//         saveUninitialized: false,
-//         cookie: {
-//             // httpOnly: false,
-//             maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
-//             // sameSite: "strict",
-//             secure: false, // Set to true in production if using HTTPS
-//         },
-//     })
-// )
-
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
@@ -43,10 +26,6 @@ app.get("*", (req, res) => {
 });
 
 
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// app.use('/', authRoutes)
 app.use('/downloads', downloadRoutes)
 app.use('/payments', paymentRoutes)
 app.use('/api', landingPageRoutes)

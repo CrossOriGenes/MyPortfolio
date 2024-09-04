@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
 
 const Hero = () => {
@@ -7,7 +6,7 @@ const Hero = () => {
       id="hero"
       className="s-hero target-section"
       data-parallax="scroll"
-      data-image-src="./images/hero-bg-3000.png"
+      data-image-src="https://res.cloudinary.com/dtfoedy3u/image/upload/v1725468793/hero-bg-3000_f537ca.png"
       data-natural-width="3000"
       data-natural-height="2000"
       data-position-y="center"

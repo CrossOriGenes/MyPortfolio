@@ -319,10 +319,10 @@ function dwnldConfirmationMail(username) {
                                                     <td>
                                                         <p style="font-size: 1.1rem !important; color: #ffffbc;">
                                                             View my projects and works by clicking <a
-                                                                href="http://localhost:3000/#portfolio" target="_blank"
+                                                                href="https://crossorigenes148.onrender.com/#portfolio" target="_blank"
                                                                 style="font-weight: 600; color: #00c1f2;">here</a>.<br>
                                                             Buy me a coffee by clicking over <a
-                                                                href="http://localhost:3000/donate" target="_blank"
+                                                                href="https://crossorigenes148.onrender.com/donate" target="_blank"
                                                                 style="font-weight: 600; color: #00c1f2;">here</a>.<br>
                                                         </p>
                                                     </td>
@@ -347,12 +347,12 @@ function dwnldConfirmationMail(username) {
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td class="content-block">Don't like these emails? <a
-                                    href="http://localhost:3000/unsubscribe">Unsubscribe</a>.
+                                    href="https://crossorigenes148.onrender.com/unsubscribe">Unsubscribe</a>.
                             </td>
                         </tr>
                         <tr>
                             <td class="content-block powered-by">
-                                Powered by <a href="http://localhost:3000">CrossOriGenes</a>.
+                                Powered by <a href="https://crossorigenes148.onrender.com">CrossOriGenes</a>.
                             </td>
                         </tr>
                     </table>

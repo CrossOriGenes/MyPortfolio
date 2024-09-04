@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ScrollToTop from "react-scroll-to-top";
 import Header from "../components/UI/Header";
@@ -19,7 +19,7 @@ function HomePage() {
   const handleMenuToggle = () => {
     setMenuIsOpen((menuIsOpen) => !menuIsOpen);
   };
-  
+
   useEffect(() => {
     /* photoswipe
      * ----------------------------------------------------- */
