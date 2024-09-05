@@ -5,10 +5,7 @@ const PortfolioSkeleton = () => {
   return (
     <>
       <div className="column">
-        <div
-          className="folio-item"
-          style={{ marginBlock: "2rem", width: "50rem" }}
-        >
+        <div className="folio-item" style={{ marginBlock: "2rem" }}>
           <div
             className="folio-item__thumb"
             style={{

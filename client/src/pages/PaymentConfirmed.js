@@ -45,7 +45,7 @@ function PaymentConfirmed() {
     async function fetchPaymentData(signature) {
         try {
             setLoading(true)
-            const response = await fetch(`http://localhost:8000/payments/getDetails/${signature}`);
+            const response = await fetch(`https://crossorigenes148.onrender.com/payments/getDetails/${signature}`);
             if (!response.ok) {
                 toast.error('Something Went wrong! Try again later')
             }
@@ -64,7 +64,6 @@ function PaymentConfirmed() {
         if (signature) {
             fetchPaymentData(signature)
         }
-        // console.log(signature)
     }, [location.search])
 
     return (

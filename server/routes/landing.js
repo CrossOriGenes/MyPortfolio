@@ -34,9 +34,9 @@ router.get('/allProjects', async (req, res, next) => {
     try {
         const projects = await Project.find()
 
-        setTimeout(() => {
-            res.status(200).json(projects)
-        }, 1500)
+        // setTimeout(() => {
+        res.status(200).json(projects)
+        // }, 1500)
     } catch (error) {
         console.log(error)
         res.status(400).send({ msg: 'Something went wrong!' || error })

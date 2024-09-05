@@ -4317,16 +4317,16 @@ p.payment-data-block__content {
 }
 
 main.error404 {
-  width: 100%;
-  position: relative;
-  background: var(--bg);
+  width: 100% !important;
+  position: relative !important;
+  background: var(--bg) !important;
   font-family: 'Poppins', sans-serif !important;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  text-align: center;
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100vh !important;
+  justify-content: center !important;
+  text-align: center !important;
 }
 
 main.error404 h1 {
