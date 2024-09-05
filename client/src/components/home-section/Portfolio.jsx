@@ -10,8 +10,8 @@ const Portfolio = () => {
   async function fetchProjects() {
     try {
       setLoading(true);
-      // const response = await fetch("https://crossorigenes148.onrender.com/api/allProjects");
-      const response = await fetch("hhttps://crossorigenes148.onrender.com/api/allProjects");
+      const response = await fetch("https://crossorigenes148.onrender.com/api/allProjects");
+      // const response = await fetch("http://localhost:8000/api/allProjects");
       const result = await response.json();
       if (!response.ok) {
         toast.error(result.msg || "Failed to fetch available posts!");
