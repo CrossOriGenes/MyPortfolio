@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProjectSkeletonSection from "../UI/PortfolioSkeleton";
 import { toast } from "react-toastify";
-import axios from "axios";
 
 const Portfolio = () => {
   const [data, setData] = useState([]);
@@ -12,16 +11,13 @@ const Portfolio = () => {
     try {
       setLoading(true);
       // const response = await fetch("https://crossorigenes148.onrender.com/api/allProjects");
-      // const response = await fetch("http://localhost:8000/api/allProjects");
-      // const result = await response.json();
-      // if (!response.ok) {
-      //   toast.error(result.msg || "Failed to fetch available posts!");
-      // }
-      const { result } = await axios.get(
-        "https://crossorigenes148.onrender.com/api/allProjects"
-      );
+      const response = await fetch("http://localhost:8000/api/allProjects");
+      const result = await response.json();
+      if (!response.ok) {
+        toast.error(result.msg || "Failed to fetch available posts!");
+      }
       setLoading(false);
-      setData(result);
+      setData(result || []);
       console.log(result);
     } catch (error) {
       console.log(error);
