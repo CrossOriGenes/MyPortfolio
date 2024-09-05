@@ -389,9 +389,9 @@ function paymentSuccessMail(data) {
                                                             <strong style="margin-left: 1rem;">Buy me a
                                                                 Coffee (Donation)</strong>
                                                         </td>
-                                                        <td>Qty: 1</td>
+                                                        <td><span style="margin-left: 1.5rem !important;">Qty: 1</span></td>
                                                         <td>
-                                                            <strong>&#8377; ${data.amount}</strong>
+                                                            <strong style="margin-left: 1.5rem !important;">&#8377; ${data.amount}</strong>
                                                         </td>
                                                     </tr>
                                                 </tbody>

@@ -13,10 +13,8 @@ const instance = new Razorpay({
     key_secret: process.env.RAZORPAY_KEY_SECRET
 })
 
-
 router.post('/donation', async (req, res, next) => {
     try {
-        // console.log("inside donation route in server");
         const options = {
             amount: req.body.amount * 100,
             currency: "INR",
@@ -59,9 +57,6 @@ router.post('/donation', async (req, res, next) => {
 
 router.post("/verify", async (req, res, next) => {
     try {
-        // console.log("inside verify route in server");
-        // console.log(req.body);
-
         const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
             req.body
         const sign = razorpay_order_id + "|" + razorpay_payment_id
@@ -130,12 +125,10 @@ router.get("/getDetails/:sign", async (req, res, next) => {
                 if (err) {
                     console.log("Error Occurs")
                 } else {
-                    console.log("Email sent successfully")
-                    // res.status(200).send({ msg: 'Please check your email' })            
+                    console.log("Email sent successfully")          
                 }
             });
         }
-        // console.log(23, data)
 
         setTimeout(() => {
             res.status(200).json({ msg: 'Please check your email', data });
@@ -145,17 +138,5 @@ router.get("/getDetails/:sign", async (req, res, next) => {
     }
 });
 
-
-// router.get("/test", async (req, res, next) => {
-//     try {
-//         instance.payments.fetch("pay_OqHEhW9LTZn8Pq").then(data => {
-//             res.status(200).json(data)
-//         }).catch(err => {
-//             res.status(500).json('Failed!!' || err)
-//         })
-//     } catch (error) {
-//         next(error)
-//     }
-// })
 
 module.exports = router

@@ -1,13 +1,11 @@
 const path = require('path');
 const express = require('express')
-
 const mongoose = require('mongoose')
 const cors = require('cors')
-require('dotenv').config()
-
 const downloadRoutes = require('./routes/downloads')
 const paymentRoutes = require('./routes/payments')
 const landingPageRoutes = require('./routes/landing')
+require('dotenv').config()
 
 const app = express()
 app.use(cors({
@@ -19,20 +17,18 @@ app.use(cors({
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+// api routes
 app.use('/downloads', downloadRoutes)
 app.use('/payments', paymentRoutes)
 app.use('/api', landingPageRoutes)
 
+// static dir build 
 app.use(express.static(path.join(__dirname, '../client/build')));
-
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
-
-
-
-
+// databse connection
 mongoose.connect(process.env.MONGO_URL).then(() => {
     console.log('DB connection successful')
 }).catch((err) => {
