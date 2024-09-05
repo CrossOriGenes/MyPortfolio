@@ -4,13 +4,17 @@ const Razorpay = require('razorpay')
 const Payment = require('../models/paymentsSchema')
 const mailTransporter = require('../utils/mailServer')
 const paymentSuccessMail = require('../utils/paymentSuccessMail')
+const getRazorpayConfig = require('../config')
 require('dotenv').config()
 
 const router = express.Router()
 
+// Get the Razorpay keys based on the environment
+const razorpayConfig = getRazorpayConfig()
+
 const instance = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET
+    key_id: razorpayConfig.key_id,
+    key_secret: razorpayConfig.key_secret
 })
 
 router.post('/donation', async (req, res, next) => {
@@ -125,7 +129,7 @@ router.get("/getDetails/:sign", async (req, res, next) => {
                 if (err) {
                     console.log("Error Occurs")
                 } else {
-                    console.log("Email sent successfully")          
+                    console.log("Email sent successfully")
                 }
             });
         }
