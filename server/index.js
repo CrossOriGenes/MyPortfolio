@@ -19,6 +19,10 @@ app.use(cors({
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+app.use('/downloads', downloadRoutes)
+app.use('/payments', paymentRoutes)
+app.use('/api', landingPageRoutes)
+
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.get("*", (req, res) => {
@@ -26,9 +30,8 @@ app.get("*", (req, res) => {
 });
 
 
-app.use('/downloads', downloadRoutes)
-app.use('/payments', paymentRoutes)
-app.use('/api', landingPageRoutes)
+
+
 
 mongoose.connect(process.env.MONGO_URL).then(() => {
     console.log('DB connection successful')

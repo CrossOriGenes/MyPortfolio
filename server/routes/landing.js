@@ -32,15 +32,12 @@ router.post('/addProject', async (req, res, next) => {
 
 router.get('/allProjects', async (req, res, next) => {
     try {
-        const projects = await Project.find()
-
-        // setTimeout(() => {
-        res.status(200).json(projects)
-        // }, 1500)
+        const projects = await Project.find();
+        res.status(200).json(projects);
     } catch (error) {
-        console.log(error)
-        res.status(400).send({ msg: 'Something went wrong!' || error })
+        console.log(error);
+        res.status(400).send({ msg: 'Something went wrong!' || error });
     }
-})
+});
 
-module.exports = router
+module.exports = router;
