@@ -51,9 +51,9 @@ function PaymentConfirmed() {
             }
             const result = await response.json();
             setLoading(false)
+            setData(result.data)
             toast.info(result.msg)
             // console.log(5, result)
-            setData(result.data)
         } catch (error) {
             console.log(error)
         }
