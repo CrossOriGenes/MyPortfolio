@@ -44,17 +44,13 @@ const About = () => {
             <h3 data-aos="fade-up">Profile</h3>
 
             <p data-aos="fade-up">
-              This is me, Snehadipta Das hailing from a well-established
-              middle-class family and currently pursuing graduation from a
-              reputed college under The University of Burdwan.
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I generally believe in
-              honesty, patience, efforts, labour and practice in everything
-              which I do. I&apos;m dedicated to serve for people and motivate
-              others, which provides me with an immense satisfaction. All my
-              works includes high endorsement of latest trending build settings,
-              current in-trade software modules, designs and performances that
-              includes a majority of web and mobile-app related approaches.
+              I generally believe in honesty, patience, efforts, labour and
+              practice in everything which I do. I&apos;m dedicated to serve
+              people and motivate others, which provides me with an immense
+              satisfaction. All my works includes high endorsement of latest
+              trending build settings, current in-trade software modules,
+              designs and performances that includes a majority of web and
+              mobile-app related approaches.
             </p>
           </div>
         </div>
@@ -116,16 +112,13 @@ const About = () => {
               <div className="position__header">
                 <h6 className="font-weight-bold mb-1">University</h6>
                 <div className="position__timeframe mb-2">
-                  <strong>
-                    Chandannagar Institute of Management and Technology
-                  </strong>{" "}
-                  |<small>2021 - 2024</small>
+                  <strong>The University of Burdwan</strong> |
+                  <small>2021 - 2024</small>
                 </div>
               </div>
               <p>
-                Affiliated under the University of Burwan, I persued my BCA
-                (Honours) Graduation degree from The University of Burdwan
-                securing a CGPA of 9.2 in aggregate.
+                Persued my BCA (Honours) Graduation degree securing a CGPA of
+                9.2 in aggregate.
               </p>
             </div>
           </div>
