@@ -12,9 +12,13 @@ const router = express.Router()
 // Get the Razorpay keys based on the environment
 const razorpayConfig = getRazorpayConfig()
 
+// const instance = new Razorpay({
+//     key_id: razorpayConfig.key_id,
+//     key_secret: razorpayConfig.key_secret
+// })
 const instance = new Razorpay({
-    key_id: razorpayConfig.key_id,
-    key_secret: razorpayConfig.key_secret
+    key_id: process.env.RAZORPAY_KEY_ID_TEST,
+    key_secret: process.env.RAZORPAY_KEY_SECRET_TEST
 })
 
 router.post('/donation', async (req, res, next) => {
