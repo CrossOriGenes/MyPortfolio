@@ -9,7 +9,7 @@ require('dotenv').config()
 
 const app = express()
 app.use(cors({
-    origin: 'http://localhost:3000', 
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     credentials: true
 }))
@@ -30,13 +30,12 @@ app.get("*", (req, res) => {
 
 // databse connection
 mongoose.connect(process.env.MONGO_URL).then(() => {
+    app.listen(8000, () => {
+        console.log('Running on port:8000')
+    })
     console.log('DB connection successful')
 }).catch((err) => {
     console.log('DB connection Failed!')
     console.error(err)
-})
-
-app.listen(8000, () => {
-    console.log('Running on port:8000')
 })
 
