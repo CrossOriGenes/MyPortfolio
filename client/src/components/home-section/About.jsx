@@ -118,7 +118,7 @@ const About = () => {
               </div>
               <p>
                 Persued my BCA (Honours) Graduation degree securing a CGPA of
-                9.2 in aggregate.
+                8.5 in aggregate.
               </p>
             </div>
           </div>
@@ -138,12 +138,12 @@ const About = () => {
               <div className="position__header">
                 <h6 className="font-weight-bold mb-1">Frontend Developer</h6>
                 <div className="position__timeframe mb-2">
-                  <strong>Self Owned</strong> | <small>2022 - Present</small>
+                  <strong>Freelance</strong> | <small>2022 - Present</small>
                 </div>
               </div>
               <p>
                 Currently specializing on Frontend development based on React
-                for websites and as an UI designer.
+                for websites, Mobile apps and as an UI designer.
               </p>
             </div>
           </div>
