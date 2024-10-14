@@ -9,7 +9,7 @@ require('dotenv').config()
 
 const app = express()
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: ['https://www.crossorigenes.works', 'http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     credentials: true
 }))
@@ -23,10 +23,6 @@ app.use('/payments', paymentRoutes)
 app.use('/api', landingPageRoutes)
 
 // static dir build 
-app.use(express.static(path.join(__dirname, '../client/build')));
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-});
 
 // databse connection
 mongoose.connect(process.env.MONGO_URL).then(() => {

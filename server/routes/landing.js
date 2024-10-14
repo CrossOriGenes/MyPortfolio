@@ -1,8 +1,14 @@
 const express = require('express')
 const Project = require('../models/projectsSchema')
+const cloudinary = require('cloudinary').v2
 require('dotenv').config()
 
 const router = express.Router()
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET,
+})
 
 router.post('/addProject', async (req, res, next) => {
     try {
@@ -19,7 +25,9 @@ router.post('/addProject', async (req, res, next) => {
         await data
             .save()
             .then(() => {
-                res.send({ msg: 'Project added to DB' })
+                setTimeout(() => {
+                    res.send({ msg: 'Project added to DB' })
+                }, 1000)
             })
             .catch(err => {
                 res.status(400).send({ msg: 'Failed to add to DB!' || err })
@@ -41,5 +49,24 @@ router.get('/allProjects', async (req, res, next) => {
         res.status(400).send({ msg: 'Something went wrong!' || error })
     }
 });
+
+router.get('/deleteProject/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const project = await Project.findById({ _id: id }, { largeURLId: '$largeURL.image_id', thumbnailURLId: '$thumbnailURL.image_id' })
+        
+        // setTimeout(() => {
+        // res.status(200).json(project.get(''))
+        // }, 500)
+
+
+        // cloudinary.api.delete_resources([largeURLId, thumbnailURLId], (result) => {
+        //     console.log(result)
+        // })
+    } catch (error) {
+        console.log(error)
+        res.status(400).send({ msg: 'Something went wrong!' || error })
+    }
+})
 
 module.exports = router;
