@@ -55,14 +55,20 @@ router.get('/deleteProject/:id', async (req, res) => {
         const id = req.params.id
         const project = await Project.findById({ _id: id }, { largeURLId: '$largeURL.image_id', thumbnailURLId: '$thumbnailURL.image_id' })
         
-        // setTimeout(() => {
-        // res.status(200).json(project.get(''))
-        // }, 500)
-
-
+        const largeURLId = project.get('largeURLId')
+        const thumbnailURLId = project.get('thumbnailURLId')
+        res.status(200).json({
+            largeURLId,
+            thumbnailURLId
+        })
         // cloudinary.api.delete_resources([largeURLId, thumbnailURLId], (result) => {
         //     console.log(result)
         // })
+
+        // setTimeout(() => {
+        //      res.status(200).json(project.get(''))
+        // }, 500)
+
     } catch (error) {
         console.log(error)
         res.status(400).send({ msg: 'Something went wrong!' || error })

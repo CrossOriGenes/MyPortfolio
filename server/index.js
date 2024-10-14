@@ -9,7 +9,7 @@ require('dotenv').config()
 
 const app = express()
 app.use(cors({
-    origin: 'https://my-portfolio-qg9sljwg3-crossorigenes-projects.vercel.app/',
+    origin: ['https://my-portfolio-qg9sljwg3-crossorigenes-projects.vercel.app/', 'https://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     credentials: true
 }))
