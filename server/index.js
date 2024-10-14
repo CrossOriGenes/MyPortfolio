@@ -7,6 +7,7 @@ const paymentRoutes = require('./routes/payments')
 const landingPageRoutes = require('./routes/landing')
 require('dotenv').config()
 
+const PORT = process.env.PORT
 const app = express()
 app.use(cors({
     origin: ['https://my-portfolio-qg9sljwg3-crossorigenes-projects.vercel.app/', 'https://localhost:5173'],
@@ -30,8 +31,8 @@ app.use('/api', landingPageRoutes)
 
 // databse connection
 mongoose.connect(process.env.MONGO_URL).then(() => {
-    app.listen(8000, () => {
-        console.log('Running on port:8000')
+    app.listen(PORT, () => {
+        console.log(`Running on port: ${PORT}`)
     })
     console.log('DB connection successful')
 }).catch((err) => {
