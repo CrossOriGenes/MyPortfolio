@@ -3586,6 +3586,7 @@ html.no-csstransitions .hero-content {
 /* ------------------------------------------------------------------- 
  * ## copyright
  * ------------------------------------------------------------------- */
+.ss-policies,
 .ss-copyright {
   z-index: 2;
   position: relative;
@@ -3614,6 +3615,31 @@ html.no-csstransitions .hero-content {
 
 .ss-copyright span:last-child::after {
   display: none;
+}
+
+.ss-policies {
+  margin-top: 2rem;
+}
+
+.ss-policies ul {
+  display: inline-flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.ss-policies ul li {
+  display: inline;
+}
+
+.ss-policies ul li a {
+  font-size: 1.4rem;
+  color: var(--bs-code-color);
+}
+
+.ss-policies a:hover,
+.ss-policies a:focus {
+  color: #ffd1d2;
 }
 
 /* ------------------------------------------------------------------- 
@@ -4299,11 +4325,11 @@ p.payment-data-block__content {
   p.payment-data-block__content {
     color: var(--bs-blue);
   }
-  
+
   .payment-data-block .pull-quote blockquote {
     background-color: #efefef3d;
   }
-  
+
 }
 
 /* //confirm page spinner  */

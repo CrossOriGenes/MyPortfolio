@@ -10,7 +10,12 @@ require('dotenv').config()
 const PORT = process.env.PORT
 const app = express()
 app.use(cors({
-    origin: ['https://my-portfolio-qg9sljwg3-crossorigenes-projects.vercel.app', 'https://www.crossorigenes.works'],
+    origin: [
+        'https://my-portfolio-qg9sljwg3-crossorigenes-projects.vercel.app', 
+        'https://www.crossorigenes.works',
+        'http://localhost:5173',
+        'http://localhost:3000/',
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     credentials: true
 }))
@@ -22,7 +27,12 @@ app.use(express.json())
 app.use('/downloads', downloadRoutes)
 app.use('/payments', paymentRoutes)
 app.use('/api', landingPageRoutes)
-
+app.use('/', (req, res) => {
+    res.status(200).json({
+        msg: "Server running successfully...",
+        status: 200
+    })
+})
 // static dir build 
 // app.use(express.static(path.join(__dirname, '../client/build')));
 // app.get("*", (req, res) => {

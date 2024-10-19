@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ScrollToTop from "react-scroll-to-top";
 import Header from "../components/UI/Header";
 import Hero from "../components/home-section/Hero";
 import ContactUs from "../components/home-section/ContactUs";
@@ -10,6 +9,8 @@ import Services from "../components/home-section/Services";
 import Portfolio from "../components/home-section/Portfolio";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
+
+import ScrollToTop from "react-scroll-to-top";
 
 function HomePage() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);

@@ -9,7 +9,7 @@ const ContactUs = () => {
   function submitContactDataHandler(emailData) {
     try {
       window.location.href = `mailto:crossorigenes@gmail.com?subject=${emailData.subject}&body=I am ${emailData.username}, ${emailData.body}`;
-      console.log(emailData);
+      // console.log(emailData);
     } catch (err) {
       setErrors(err || "Failed to send Email! 😢");
       console.error(err);
@@ -95,11 +95,34 @@ const ContactUs = () => {
               </li>
             </ul>
           </div>
+          {/* end ss-social-links */}
           <div className="column large-full ss-copyright">
             <span>© 2024-25 CrossOriGenes</span>
             <span>All rights reserved</span>
           </div>
           {/* end ss-copyright */}
+          <div className="row large-full ss-policies">
+            <ul>
+              <li>
+                <Link to="https://www.privacypolicies.com/live/71ff0509-6e38-4a0c-b455-e789fd7ea5c1">
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link to="https://www.privacypolicies.com/live/e26d56c7-8387-4b24-a804-ace7fdb7eea1">
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link to="https://www.privacypolicies.com/live/08403d58-6030-43aa-83d4-b1c27b229b59">
+                  Refund policy
+                </Link>
+              </li>
+              <li>
+                <Link to="mailto:crossorigenes@gmail.com">Contact</Link>
+              </li>
+            </ul>
+          </div>
         </div>
         {/* end s-footer__bottom */}
       </footer>

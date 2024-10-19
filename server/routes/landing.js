@@ -50,24 +50,23 @@ router.get('/allProjects', async (req, res, next) => {
     }
 });
 
-router.get('/deleteProject/:id', async (req, res) => {
+router.delete('/deleteProject/:id', async (req, res) => {
     try {
         const id = req.params.id
         const project = await Project.findById({ _id: id }, { largeURLId: '$largeURL.image_id', thumbnailURLId: '$thumbnailURL.image_id' })
-        
+
         const largeURLId = project.get('largeURLId')
         const thumbnailURLId = project.get('thumbnailURLId')
-        res.status(200).json({
-            largeURLId,
-            thumbnailURLId
-        })
-        // cloudinary.api.delete_resources([largeURLId, thumbnailURLId], (result) => {
-        //     console.log(result)
-        // })
 
-        // setTimeout(() => {
-        //      res.status(200).json(project.get(''))
-        // }, 500)
+        cloudinary.api.delete_resources([largeURLId, thumbnailURLId], (result) => {
+            console.log(result)
+        }).catch(err => {
+            console.log(err)
+            res.status(401).send({ message: "Failed to delete image from cloudinary" })
+        })
+
+        await Project.findByIdAndDelete({ _id: id })
+        res.status(200).json({ msg: "Project removed successfully" })
 
     } catch (error) {
         console.log(error)

@@ -33,7 +33,7 @@ const LinkSection = () => {
             <div className="footer-contact-block" data-aos="fade-up">
               <h5 className="footer-contact-block__header">Phone</h5>
               <p className="footer-contact-block__content">
-                <a href="tel:+1975432345">+91 9123944263</a>
+                <a href="tel:+91 9123944263">+91 9123944263</a>
               </p>
             </div>
             {/* end footer-contact-block */}
@@ -87,11 +87,34 @@ const LinkSection = () => {
             </li>
           </ul>
         </div>
+        {/* end ss-social-links */}
         <div className="column large-full ss-copyright">
           <span>© 2024-25 CrossOriGenes</span>
           <span>All rights reserved</span>
         </div>
         {/* end ss-copyright */}
+        <div className="row large-full ss-policies">
+          <ul>
+            <li>
+              <Link to="https://www.privacypolicies.com/live/71ff0509-6e38-4a0c-b455-e789fd7ea5c1">
+                Terms
+              </Link>
+            </li>
+            <li>
+              <Link to="https://www.privacypolicies.com/live/e26d56c7-8387-4b24-a804-ace7fdb7eea1">
+                Privacy
+              </Link>
+            </li>
+            <li>
+              <Link to="https://www.privacypolicies.com/live/08403d58-6030-43aa-83d4-b1c27b229b59">
+                Refund policy
+              </Link>
+            </li>
+            <li>
+              <Link to="mailto:crossorigenes@gmail.com">Contact</Link>
+            </li>
+          </ul>
+        </div>
       </div>
       {/* end s-footer__bottom */}
     </footer>

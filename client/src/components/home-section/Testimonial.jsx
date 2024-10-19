@@ -122,7 +122,7 @@ const Testimonial = () => {
                 this link
               </p>
               <Link
-                to="https://crossorigenes148.onrender.com/donate"
+                to="../donate"
                 className="btn btn--primary h-full-width"
               >
                 Buy me a Coffee
