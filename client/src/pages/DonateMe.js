@@ -29,15 +29,15 @@ function DonateMe() {
         try {
           const res = await toast.promise(
             fetch("https://crossorigenes148.onrender.com/payments/verify", {
-            method: 'POST',
-            body: JSON.stringify(response),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }),
-          {
-            pending: 'Completing payment... Please do not cancel/exit'
-          });
+              method: 'POST',
+              body: JSON.stringify(response),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }),
+            {
+              pending: 'Completing payment... Please do not cancel/exit'
+            });
           const result = await res.json()
 
           if (res.status === 200) {
@@ -117,6 +117,10 @@ function DonateMe() {
                 </p>
               </div>
               <Link to='..' className='btn btn--secondary'>My Page</Link>
+              <div className="alert alert-info mt-8" role="alert">
+                <strong>Note:</strong> This section is still under development & testing purpose.
+                You wouldn't be charged for real
+              </div>
             </div>
 
             <div className="column container col-md-6 tab-full mt-tab-7">

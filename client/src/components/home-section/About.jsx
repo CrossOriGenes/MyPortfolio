@@ -110,7 +110,7 @@ const About = () => {
                 style={{ top: 2, left: "-30px" }}
               />
               <div className="position__header">
-                <h6 className="font-weight-bold mb-1">University</h6>
+                <h6 className="font-weight-bold mb-1">Graduation</h6>
                 <div className="position__timeframe mb-2">
                   <strong>The University of Burdwan</strong> |
                   <small>2021 - 2024</small>
@@ -118,7 +118,7 @@ const About = () => {
               </div>
               <p>
                 Persued my BCA (Honours) Graduation degree securing a CGPA of
-                8.5 in aggregate.
+                8.6 in aggregate.
               </p>
             </div>
           </div>
