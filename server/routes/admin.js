@@ -89,7 +89,7 @@ router.post("/register", async (req, res) => {
                     .then((result) => {
                         res
                             .status(200)
-                            .json({ message: "Admin registration successful", result })
+                            .json({ message: "Admin registered successfully", result })
                         console.log(result)
                     })
                     .catch((err) => {

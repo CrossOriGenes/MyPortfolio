@@ -52,11 +52,12 @@ router.get('/allProjects', async (req, res, next) => {
 
 router.delete('/deleteProject/:id', async (req, res) => {
     try {
+        // console.log("inside delete route")
         const id = req.params.id
-        const project = await Project.findById({ _id: id }, { largeURLId: '$largeURL.image_id', thumbnailURLId: '$thumbnailURL.image_id' })
-
-        const largeURLId = project.get('largeURLId')
-        const thumbnailURLId = project.get('thumbnailURLId')
+        const project = await Project.findById(id)
+        
+        const largeURLId = project.largeURL.image_id
+        const thumbnailURLId = project.thumbnailURL.image_id
 
         cloudinary.api.delete_resources([largeURLId, thumbnailURLId], (result) => {
             console.log(result)
@@ -65,12 +66,17 @@ router.delete('/deleteProject/:id', async (req, res) => {
             res.status(401).send({ message: "Failed to delete image from cloudinary" })
         })
 
-        await Project.findByIdAndDelete({ _id: id })
-        res.status(200).json({ msg: "Project removed successfully" })
+        await Project.findByIdAndDelete(id)
+
+        res.status(200).json({
+            msg: "Project removed successfully" 
+            // msg: "Test successful",
+            // project
+        })
 
     } catch (error) {
         console.log(error)
-        res.status(400).send({ msg: 'Something went wrong!' || error })
+        res.status(400).send({ msg: 'Something went wrong!', error })
     }
 })
 
