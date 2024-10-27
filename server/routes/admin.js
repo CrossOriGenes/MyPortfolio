@@ -112,3 +112,5 @@ router.get('/protected', validateToken, (req, res) => {
         user: req.user,
     });
 });
+
+module.exports = router
