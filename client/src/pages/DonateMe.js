@@ -118,8 +118,8 @@ function DonateMe() {
               </div>
               <Link to='..' className='btn btn--secondary'>My Page</Link>
               <div className="alert alert-info mt-8" role="alert">
-                <strong>Note:</strong> This section is still under development & testing purpose.
-                You wouldn't be charged for real
+                <strong>Note:-</strong> This section is still under development & testing purpose.
+                You wouldn't be charged for real...
               </div>
             </div>
 
