@@ -117,10 +117,10 @@ function DonateMe() {
                 </p>
               </div>
               <Link to='..' className='btn btn--secondary'>My Page</Link>
-              <div className="alert alert-info mt-8" role="alert">
+              {/* <div className="alert alert-info mt-8" role="alert">
                 <strong>Note:-</strong> This section is still under development & testing purpose.
                 You wouldn't be charged for real...
-              </div>
+              </div> */}
             </div>
 
             <div className="column container col-md-6 tab-full mt-tab-7">
